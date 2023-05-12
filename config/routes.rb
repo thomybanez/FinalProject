@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   get '/entertainers/register', to: 'entertainers#register', as: 'entertainers_register'
   get '/entertainers/dashboard', to: 'entertainers#dashboard', as: 'entertainers_dashboard'
 
+  get '/clients', to: 'clients#home', as: 'clients_home'
+  get '/clients/login', to: 'clients#login', as: 'clients_login'
+  get '/clients/register', to: 'clients#register', as: 'clients_register'
+  get '/clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
+  
+
 
 end
