@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   get '/clients/login', to: 'clients#login', as: 'clients_login'
   get '/clients/register', to: 'clients#register', as: 'clients_register'
   get '/clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
+
+  post '/clients', to: 'clients#create', as: 'clients_create'
   
 
+  
 
 end

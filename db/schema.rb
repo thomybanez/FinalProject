@@ -15,9 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_084645) do
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.string "account_name"
-    t.string "password"
     t.string "email"
+    t.string "password_digest"
     t.string "contact_number"
     t.string "nick_name"
     t.integer "age"
@@ -29,9 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_084645) do
   end
 
   create_table "performers", force: :cascade do |t|
-    t.string "account_name"
-    t.string "password"
     t.string "email"
+    t.string "password_digest"
     t.string "contact_number"
     t.string "stage_name"
     t.integer "age"
