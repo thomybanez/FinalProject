@@ -12,14 +12,23 @@ Rails.application.routes.draw do
   get '/performers/login', to: 'performers#login', as: 'performers_login'
   get '/performers/register', to: 'performers#register', as: 'performers_register'
   get '/performers/dashboard', to: 'performers#dashboard', as: 'performers_dashboard'
+  get '/performers/logout', to: 'performers#logout', as: 'performers_logout'
 
   get '/clients', to: 'clients#home', as: 'clients_home'
   get '/clients/login', to: 'clients#login', as: 'clients_login'
   get '/clients/register', to: 'clients#register', as: 'clients_register'
   get '/clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
+  get '/clients/logout', to: 'clients#logout', as: 'clients_logout'
+
+  post '/performers', to: 'performers#create', as: 'performers_create'
+  post '/performers/login/submit', to: 'performers#login_submit', as: 'performers_login_submit'
 
   post '/clients', to: 'clients#create', as: 'clients_create'
   post '/clients/login/submit', to: 'clients#login_submit', as: 'clients_login_submit'
+  
+  
+
+
   
 
   

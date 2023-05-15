@@ -1,1 +1,22 @@
 Performers Register
+
+<%= form_with scope: @performer, url: performers_create_path , method: 'post'  do |form| %>
+
+    <%= form.label :email %><br>
+    <%= form.text_field :email %><br>
+
+    <%= form.label :password %><br>
+    <%= form.password_field :password %><br>
+
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %><br>
+
+    <%= form.submit %>
+
+<% end %>
+
+<div style="color:red">
+<% @performer.errors.full_messages.each do |error| %>
+    <%= error %><br>
+  <% end %>
+</div>

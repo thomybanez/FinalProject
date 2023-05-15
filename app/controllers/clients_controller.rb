@@ -1,6 +1,4 @@
-class ClientsController < ApplicationController
-
-    
+class ClientsController < ApplicationController    
 
     def register
         @client = Client.new
@@ -17,17 +15,34 @@ class ClientsController < ApplicationController
     end
 
     def login_submit  
-        if Client.authenticate(params[:email], params[:password])
-            redirect_to clients_dashboard_path
-          else
+        if @client = Client.authenticate(params[:email], params[:password])
+            session[:client_token] = @client.token
+            redirect_to clients_dashboard_path(@client)
+        else
             redirect_to clients_login_path
-          end   
+        end   
+    end
+
+    def dashboard
+        @client = current_client
+
+    end
+
+    def logout
+        session.delete(:client_token)
+        redirect_to users_home_path
     end
 
 
     private
     def client_account_params
         params.require(:client).permit(:email, :password, :password_confirmation)
+    end
+
+    def current_client
+        if session[:client_token]
+          @current_client ||= Client.find_by(token: session[:client_token])
+        end
     end
 
 

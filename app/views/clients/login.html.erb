@@ -1,6 +1,6 @@
 Client Login
 
-<%= form_with scope: @client, url: clients_login_submit_path  do |form|%>
+<%= form_with scope: @client, url: clients_login_submit_path, html: {autocomplete: "off"} do |form|%>
 <%= @client %>
     <%= form.label :email %><br>
     <%= form.text_field :email %><br>
