@@ -1,6 +1,6 @@
 Client Register
 
-<%= form_with scope: @client, url: clients_create_path , method: 'post'  do |form| %>
+<%= form_with scope: @client, url: clients_create_path , method: 'post', html: {autocomplete: "off"}  do |form| %>
 
     <%= form.label :email %><br>
     <%= form.text_field :email %><br>

@@ -1,9 +1,10 @@
 Performer Dashboard
 
-<%= link_to "logout", users_home_path %>
+<%= link_to "logout", users_home_path %><br>
 
-<%= session[:performer_token] %>
-
-
-<%= @performer %>   
-<%= session.inspect %>
+<% @client.each do |client| %>
+    <%= client.nick_name %>
+    <%= client.age %>
+    <%= client.gender %>
+    <br>
+<% end %>

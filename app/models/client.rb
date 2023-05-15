@@ -1,7 +1,15 @@
 class Client < ApplicationRecord
+    #bcrypt
     has_secure_password
+
+    #validations
     validates :email, presence: true
+
+    #associations
     has_one :wallet, as: :owner
+    has_one :booking
+
+    #callbacks
     after_create :create_wallet
 
     def create_wallet

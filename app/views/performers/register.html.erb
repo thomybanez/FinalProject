@@ -1,6 +1,6 @@
 Performers Register
 
-<%= form_with scope: @performer, url: performers_create_path , method: 'post'  do |form| %>
+<%= form_with scope: @performer, url: performers_create_path ,  method: 'post', html: {autocomplete: "off"}  do |form| %>
 
     <%= form.label :email %><br>
     <%= form.text_field :email %><br>

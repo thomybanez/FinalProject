@@ -1,9 +1,13 @@
 Client Dashboard
 
-<%= link_to "logout", users_home_path %>
-
-<%= session[:client_token] %>
+<%= link_to "logout", users_home_path %><br>
 
 
-<%= @client %>   
-<%= session.inspect %>
+<% @performer.each do |performer| %>
+    <%= link_to clients_show_path(performer) do %>
+          <h4><%= performer.stage_name %></h4>
+          <p>Age: <%= performer.age %></p>
+          <p>Gender: <%= performer.gender %></p>
+    <% end %>
+<% end %>
+

@@ -25,6 +25,7 @@ class PerformersController < ApplicationController
 
     def dashboard
         @performer = current_performer
+        @client = Client.select(:nick_name, :age, :gender)
 
     end
 

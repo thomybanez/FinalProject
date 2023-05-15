@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_15_082223) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_120836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "client_id"
+    t.boolean "client_paid"
+    t.bigint "performer_id"
+    t.boolean "performer_accepted"
+    t.bigint "service_id"
+    t.string "transaction_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["performer_id"], name: "index_bookings_on_performer_id"
+    t.index ["service_id"], name: "index_bookings_on_service_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "email"

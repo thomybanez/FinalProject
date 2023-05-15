@@ -25,14 +25,19 @@ class ClientsController < ApplicationController
 
     def dashboard
         @client = current_client
+        @performer = Performer.all
 
+    end
+
+    def show
+        @performer = Performer.find(params[:id])
+        
     end
 
     def logout
         session.delete(:client_token)
         redirect_to users_home_path
     end
-
 
     private
     def client_account_params
