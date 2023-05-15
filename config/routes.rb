@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get '/users', to: 'users#home', as: 'users_home'
 
 
-  get '/entertainers', to: 'entertainers#home', as: 'entertainers_home'
-  get '/entertainers/login', to: 'entertainers#login', as: 'entertainers_login'
-  get '/entertainers/register', to: 'entertainers#register', as: 'entertainers_register'
-  get '/entertainers/dashboard', to: 'entertainers#dashboard', as: 'entertainers_dashboard'
+  get '/performers', to: 'performers#home', as: 'performers_home'
+  get '/performers/login', to: 'performers#login', as: 'performers_login'
+  get '/performers/register', to: 'performers#register', as: 'performers_register'
+  get '/performers/dashboard', to: 'performers#dashboard', as: 'performers_dashboard'
 
   get '/clients', to: 'clients#home', as: 'clients_home'
   get '/clients/login', to: 'clients#login', as: 'clients_login'

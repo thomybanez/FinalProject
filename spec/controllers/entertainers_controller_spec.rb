@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe EntertainersController, type: :controller do
+RSpec.describe PerformersController, type: :controller do
   
 end

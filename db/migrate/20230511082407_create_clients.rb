@@ -9,6 +9,7 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :gender
       t.string :location
       t.float :spent_amount
+      t.string :token
 
       t.timestamps
     end

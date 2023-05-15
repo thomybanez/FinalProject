@@ -1,4 +1,4 @@
-class CreateEntertainers < ActiveRecord::Migration[7.0]
+class CreatePerformers < ActiveRecord::Migration[7.0]
   def change
     create_table :performers do |t|
       t.string :email
@@ -11,6 +11,7 @@ class CreateEntertainers < ActiveRecord::Migration[7.0]
       t.text :description
       t.float :ratings
       t.boolean :availability
+      t.string :token
 
       t.timestamps
     end
