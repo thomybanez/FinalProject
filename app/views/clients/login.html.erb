@@ -1,1 +1,14 @@
 Client Login
+
+<%= form_with scope: @client, url: clients_login_submit_path  do |form|%>
+<%= @client %>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %><br>
+
+    <%= form.label :password %><br>
+    <%= form.password_field :password %><br>
+
+    <%= form.submit "login" %>
+
+
+<% end %>

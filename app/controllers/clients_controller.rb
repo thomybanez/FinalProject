@@ -10,10 +10,18 @@ class ClientsController < ApplicationController
         @client = Client.new(client_account_params)   
 
         if @client.save
-            redirect_to clients_login_path
+            redirect_to clients_login_path       
         else
             render :register, status: :unprocessable_entity
         end
+    end
+
+    def login_submit  
+        if Client.authenticate(params[:email], params[:password])
+            redirect_to clients_dashboard_path
+          else
+            redirect_to clients_login_path
+          end   
     end
 
 
