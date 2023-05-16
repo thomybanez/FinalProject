@@ -26,7 +26,6 @@ class ClientsController < ApplicationController
     def dashboard
         @client = current_client
         @performer = Performer.all
-
     end
 
     def show

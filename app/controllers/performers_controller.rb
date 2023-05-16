@@ -25,19 +25,36 @@ class PerformersController < ApplicationController
 
     def dashboard
         @performer = current_performer
-        @client = Client.select(:nick_name, :age, :gender)
+        @client = Client.all
+    end
+
+    def show
+        @client = Client.find(params[:id])
 
     end
+
+    def edit
+    
+    end
+
+    def update
+    
+    
+    end
+
 
     def logout
         session.delete(:performer_token)
         redirect_to users_home_path
     end
 
-
     private
     def performer_account_params
         params.require(:performer).permit(:email, :password, :password_confirmation)
+    end
+
+    def performer_update_params
+
     end
 
     def current_performer
