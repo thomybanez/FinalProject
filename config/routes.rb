@@ -20,12 +20,19 @@ Rails.application.routes.draw do
   get '/clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
   get '/clients/show/:id', to: 'clients#show', as: 'clients_show'
   get '/clients/logout', to: 'clients#logout', as: 'clients_logout'
+  get '/clients/edit', to: 'clients#edit', as: 'clients_edit'
+  
+
+  get '/bookings', to: 'bookings#new', as: 'bookings_new'
 
   post '/performers', to: 'performers#create', as: 'performers_create'
   post '/performers/login/submit', to: 'performers#login_submit', as: 'performers_login_submit'
 
   post '/clients', to: 'clients#create', as: 'clients_create'
   post '/clients/login/submit', to: 'clients#login_submit', as: 'clients_login_submit'
+  post '/clients/update', to: 'clients#update', as: 'clients_update'
+
+  
   
   
 

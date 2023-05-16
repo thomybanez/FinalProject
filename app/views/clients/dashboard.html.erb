@@ -1,13 +1,21 @@
 Client Dashboard
 
-<%= link_to "logout", users_home_path %><br>
+<%= link_to "Profile", clients_edit_path %>
+<%= link_to "Logout", users_home_path %><br>
 
+<%= link_to clients_edit_path(@client) do %>
+    <h4>Nickname:<%= @client.nick_name %></h4>
+    <p>Age: <%= @client.age %></p>
+    <p>Gender: <%= @client.gender %></p>
+<% end %>
 
-<% @performer.each do |performer| %>
+<% @performer.each do |performer| %>    
+    <div style="background-color: rgb( 150, 150, 150)">
     <%= link_to clients_show_path(performer) do %>
           <h4><%= performer.stage_name %></h4>
           <p>Age: <%= performer.age %></p>
           <p>Gender: <%= performer.gender %></p>
     <% end %>
+    </div>
 <% end %>
 

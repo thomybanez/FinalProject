@@ -34,6 +34,22 @@ class ClientsController < ApplicationController
         
     end
 
+    def edit
+        @client = Client.find_by(token: session[:client_token])
+    end
+
+    def update
+        @client = Client.find_by(token: session[:client_token])
+
+        if @client.update(client_update_params)
+            redirect_to clients_dashboard_path
+            puts "Crazy123"
+        else
+            render :edit
+            puts "Crazy"
+        end
+    end
+
     def logout
         session.delete(:client_token)
         redirect_to users_home_path
@@ -43,6 +59,10 @@ class ClientsController < ApplicationController
     def client_account_params
         params.require(:client).permit(:email, :password, :password_confirmation)
     end
+
+    def client_update_params
+        params.require(:client).permit(:nick_name, :contact_number, :age, :gender, :location)
+    end    
 
     def current_client
         if session[:client_token]

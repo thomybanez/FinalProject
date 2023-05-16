@@ -1,0 +1,26 @@
+Edit Profile
+
+<%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
+
+    <%= form.label :email%>
+    <%= @client.email %><br>
+
+    <%= form.label :nick_name %>
+    <%= form.text_field :nick_name %><br>
+
+    <%= form.label :contact_number %>
+    <%= form.text_field :contact_number %><br>
+
+    <%= form.label :age %>
+    <%= form.text_field :age %><br>
+
+    <%= form.label :gender %>
+    <%= form.text_field :gender %><br>
+
+    <%= form.label :location %>
+    <%= form.text_field :location %><br>
+
+    <%= form.submit %>
+
+
+<% end %>
