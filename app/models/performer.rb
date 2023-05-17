@@ -8,6 +8,7 @@ class Performer < ApplicationRecord
     #associations
     has_one :wallet, as: :owner
     has_one :booking
+    has_many :service
 
     #callbacks
     after_create :create_wallet

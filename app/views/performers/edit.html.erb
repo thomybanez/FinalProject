@@ -1,0 +1,25 @@
+Performer Edit
+
+<%= form_with scope: @performer, url: performers_update_path, html: { autocomplete: "off"} do |form| %>
+    
+    <%= form.label :stage_name %>
+    <%= form.text_field :stage_name %><br>
+
+    <%= form.label :description %>
+    <%= form.text_field :description %><br>
+
+    <%= form.label :contact_number %>
+    <%= form.text_field :contact_number %><br>
+
+    <%= form.label :age %>
+    <%= form.text_field :age %><br>
+
+    <%= form.label :gender %>
+    <%= form.text_field :gender %><br>
+
+    <%= form.label :location %>
+    <%= form.text_field :location %><br>
+
+    <%= form.submit %>
+
+<% end %>

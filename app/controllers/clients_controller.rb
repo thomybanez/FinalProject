@@ -41,11 +41,9 @@ class ClientsController < ApplicationController
         @client = Client.find_by(token: session[:client_token])
 
         if @client.update(client_update_params)
-            redirect_to clients_dashboard_path
-            puts "Crazy123"
+            redirect_to clients_dashboard_path(@client)
         else
             render :edit
-            puts "Crazy"
         end
     end
 

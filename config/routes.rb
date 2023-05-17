@@ -10,23 +10,28 @@ Rails.application.routes.draw do
   get '/performers', to: 'performers#home', as: 'performers_home'
   get '/performers/login', to: 'performers#login', as: 'performers_login'
   get '/performers/register', to: 'performers#register', as: 'performers_register'
-  get '/performers/dashboard', to: 'performers#dashboard', as: 'performers_dashboard'
+  get '/performers/dashboard/:id', to: 'performers#dashboard', as: 'performers_dashboard'
   get '/performers/show/:id', to: 'performers#show', as: 'performers_show'
   get '/performers/logout', to: 'performers#logout', as: 'performers_logout'
-  get '/performers/edit', to: 'performers#edit', as: 'performers_edit'
+  get '/performers/edit/:id', to: 'performers#edit', as: 'performers_edit'
 
   #Clients#
   get '/clients', to: 'clients#home', as: 'clients_home'
   get '/clients/login', to: 'clients#login', as: 'clients_login'
   get '/clients/register', to: 'clients#register', as: 'clients_register'
-  get '/clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
+  get '/clients/dashboard/:id', to: 'clients#dashboard', as: 'clients_dashboard'
   get '/clients/show/:id', to: 'clients#show', as: 'clients_show'
   get '/clients/logout', to: 'clients#logout', as: 'clients_logout'
-  get '/clients/edit', to: 'clients#edit', as: 'clients_edit'
+  get '/clients/edit/:id', to: 'clients#edit', as: 'clients_edit'
   
 
   #Bookings#
   get '/bookings', to: 'bookings#new', as: 'bookings_new'
+  get '/bookings/request', to: 'bookings#request', as: 'bookings_request'
+
+  #Services#
+  get '/services', to: 'services#show', as: 'services_show'  
+  post '/services', to: 'services#create', as: 'services_create'
 
   #Submit Performer Client#
   post '/performers', to: 'performers#create', as: 'performers_create'

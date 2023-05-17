@@ -34,14 +34,18 @@ class PerformersController < ApplicationController
     end
 
     def edit
-    
+        @performer = Performer.find_by(token: session[:performer_token])    
     end
 
     def update
-    
-    
-    end
+        @performer = Performer.find_by(token: session[:performer_token])
 
+        if @performer.update(performer_update_params)
+            redirect_to performers_dashboard_path(@performer)
+        else
+            render :edit
+        end    
+    end
 
     def logout
         session.delete(:performer_token)
@@ -54,6 +58,7 @@ class PerformersController < ApplicationController
     end
 
     def performer_update_params
+        params.require(:performer).permit(:stage_name, :description, :contact_number, :age, :gender, :location)
 
     end
 

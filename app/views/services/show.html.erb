@@ -1,0 +1,16 @@
+Show Services
+<%= @performer %>
+<%= @service.inspect %>
+
+
+<%= form_with scope: @service, url: services_create_path, html: { autocomplete: "off" } do |form| %>
+
+
+    
+    <%= form.label :category %>
+    <%= form.select :category, ['Dance', 'Sing', 'Escort'] %>
+
+
+
+
+<% end %>
