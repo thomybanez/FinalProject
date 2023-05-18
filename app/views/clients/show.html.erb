@@ -1,13 +1,35 @@
 Show Performer Details
 
-<br>
-<%= @performer.stage_name %><br>
-<%= @performer.age %><br>
-<%= @performer.gender %><br>
-<%= @performer.location %><br>
-<%= @performer.description %><br>
-<%= @performer.ratings %><br>
-<%= @performer.availability %><br>
+<%= render "performer" %>
+
+
+Services Available
+<%= form_with scope: @booking, url: bookings_new_path(@performer.id), html: { autocomplete: "off" } do |form| %>
+<table>
+    <thead>
+        <tr>
+            <th>category</th>
+            <th>service name</th>
+            <th>rate per hour</th>
+            <th>no. of hour/s</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @service.each do |service| %>
+        <tr>            
+            <td><%= service.category %></td>
+            <td><%= service.service_name %></td>
+            <td><%= service.rate_hour %></td>
+            <td><%= form.radio_button :service_id, service.id %>
+        <tr>    
+    <% end %>    
+    </tbody>
+    
+</table>
+<%= form.submit "Book Now" %>
+<% end %>
+
+
 
 <%= link_to "Book Now", bookings_new_path %>
 

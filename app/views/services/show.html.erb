@@ -1,16 +1,9 @@
-Show Services
-<%= @performer %>
-<%= @service.inspect %>
 
-
-<%= form_with scope: @service, url: services_create_path, html: { autocomplete: "off" } do |form| %>
-
-
-    
-    <%= form.label :category %>
-    <%= form.select :category, ['Dance', 'Sing', 'Escort'] %>
-
-
-
-
+<% @service.each do |service| %>
+    Category: <%= service.category %><br>
+    Name: <%= service.service_name %><br>
+    Rate per hour:<%= service.rate_hour %><br>
+    Number of hour:<%= service.no_hour %><br>
 <% end %>
+    
+<%= link_to "Add Service", services_new_path %>

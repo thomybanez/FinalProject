@@ -1,4 +1,4 @@
 class Service < ApplicationRecord
 
-    has_one :performer
+    belongs_to :performer
 end

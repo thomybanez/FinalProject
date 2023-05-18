@@ -61,8 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_140543) do
   create_table "services", force: :cascade do |t|
     t.string "category"
     t.string "service_name"
-    t.integer "rate_hours"
-    t.integer "hours"
+    t.integer "rate_hour"
+    t.integer "no_hour"
     t.bigint "performer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

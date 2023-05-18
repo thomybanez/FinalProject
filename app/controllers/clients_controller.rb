@@ -28,8 +28,10 @@ class ClientsController < ApplicationController
         @performer = Performer.all
     end
 
-    def show
+    def show        
         @performer = Performer.find(params[:id])
+        @service = Service.where(performer_id: @performer.id)
+        @booking = Booking.new
         
     end
 
@@ -66,6 +68,8 @@ class ClientsController < ApplicationController
           @current_client ||= Client.find_by(token: session[:client_token])
         end
     end
+
+    
 
 
 end

@@ -1,0 +1,19 @@
+New Service
+
+<%= form_with scope: @service, url: services_create_path, html: { autocomplete: "off" } do |form| %>
+   
+    <%= form.label :category %>
+    <%= form.select :category, ['Dance', 'Sing', 'Escort'] %><br>
+
+    <%= form.label :service_name %>
+    <%= form.text_field :service_name %><br>
+
+    <%= form.label :rate_hour %>
+    <%= form.text_field :rate_hour %><br>
+
+    <%= form.label :no_hour %>
+    <%= form.text_field :no_hour %><br>
+
+    <%= form.submit %>
+
+<% end %>

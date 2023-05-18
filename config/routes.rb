@@ -26,11 +26,13 @@ Rails.application.routes.draw do
   
 
   #Bookings#
-  get '/bookings', to: 'bookings#new', as: 'bookings_new'
-  get '/bookings/request', to: 'bookings#request', as: 'bookings_request'
+  get '/bookings/show', to: 'bookings#show', as: 'bookings_show'
+  post '/bookings/new/performer/:id', to: 'bookings#new', as: 'bookings_new'
 
   #Services#
-  get '/services', to: 'services#show', as: 'services_show'  
+  get '/services', to: 'services#show', as: 'services_show'
+  get '/services/new', to: 'services#new', as: 'services_new'
+  
   post '/services', to: 'services#create', as: 'services_create'
 
   #Submit Performer Client#
