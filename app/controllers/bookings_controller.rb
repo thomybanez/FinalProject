@@ -1,25 +1,20 @@
 class BookingsController < ApplicationController   
 
-    def new
+    def create        
         @client = Client.find_by(token: session[:client_token])
-        @performer = Performer.find(params[:id])
-        @booking = Booking.new(booking_create_params)
-        @booking.client_id = @client.id
-        @booking.performer_id = @performer.id
-        @booking.save
+        @selected_performer = Performer.find_by(id: session[:selected_performer])
+        session[:selected_service] = params[:booking][:service_id]
+        @selected_service = Service.find_by(id: session[:selected_service])
         
-        if @booking.save
-            redirect_to bookings_show_path
-            puts "SUCESSSSSSSSSSSSSSSSSSSSSSSSSSSSS"
-        else
-            redirect_to clients_show_path
-            puts " FAIFAKFIUFAIFAIFIAFIAFIAFIAIFAI"
-        end
+        Booking.create_update(@client.id, @selected_performer.id, @selected_service.id)
         
-    end
+    
+        
+      end
+
 
     def show
-        @client = Client.find_by(token: session[:client_token])
+        @client = Client.find_by(token: session[:client_token])      
         @booking = Booking.find_by(client_id: @client)
     end
 

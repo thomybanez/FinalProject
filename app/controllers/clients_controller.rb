@@ -28,10 +28,11 @@ class ClientsController < ApplicationController
         @performer = Performer.all
     end
 
-    def show        
-        @performer = Performer.find(params[:id])
-        @service = Service.where(performer_id: @performer.id)
-        @booking = Booking.new
+    def show
+        session[:selected_performer] = params[:id]
+        @selected_performer = Performer.find_by(id: session[:selected_performer])
+        @service = Service.where(performer_id: session[:selected_performer])
+        @booking = Booking.new       
         
     end
 

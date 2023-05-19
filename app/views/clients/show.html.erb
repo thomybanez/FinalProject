@@ -4,7 +4,7 @@ Show Performer Details
 
 
 Services Available
-<%= form_with scope: @booking, url: bookings_new_path(@performer.id), html: { autocomplete: "off" } do |form| %>
+<%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
 <table>
     <thead>
         <tr>
@@ -28,9 +28,4 @@ Services Available
 </table>
 <%= form.submit "Book Now" %>
 <% end %>
-
-
-
-<%= link_to "Book Now", bookings_new_path %>
-
 

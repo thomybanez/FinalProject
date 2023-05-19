@@ -19,15 +19,16 @@ Rails.application.routes.draw do
   get '/clients', to: 'clients#home', as: 'clients_home'
   get '/clients/login', to: 'clients#login', as: 'clients_login'
   get '/clients/register', to: 'clients#register', as: 'clients_register'
-  get '/clients/dashboard/:id', to: 'clients#dashboard', as: 'clients_dashboard'
-  get '/clients/show/:id', to: 'clients#show', as: 'clients_show'
+  get '/clients/:id/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
+  get '/clients/:id/show', to: 'clients#show', as: 'clients_show'
   get '/clients/logout', to: 'clients#logout', as: 'clients_logout'
-  get '/clients/edit/:id', to: 'clients#edit', as: 'clients_edit'
+  get '/clients/:id/edit', to: 'clients#edit', as: 'clients_edit'
   
 
   #Bookings#
   get '/bookings/show', to: 'bookings#show', as: 'bookings_show'
-  post '/bookings/new/performer/:id', to: 'bookings#new', as: 'bookings_new'
+
+  post '/bookings/create/performer/:id', to: 'bookings#create', as: 'bookings_create'
 
   #Services#
   get '/services', to: 'services#show', as: 'services_show'
