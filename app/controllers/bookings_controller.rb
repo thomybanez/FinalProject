@@ -20,11 +20,27 @@ class BookingsController < ApplicationController
     end
 
     def permission
-
-    end
-
-    private
-    def booking_create_params
+        timeout = 900 # Set the duration of the timer here (e.g., 900 seconds or 15 minutes)
+    
+        if cookies[:timer_started_at].nil?
+          cookies[:timer_started_at] = Time.current.to_i
+          @time_left = timeout
+        else
+          start_time = Time.at(cookies[:timer_started_at].to_i)
+          time_passed = Time.current - start_time
+          @time_left = [timeout - time_passed.to_i, 0].max
+          reset_timer if @time_left.zero?
+        end
+      end
+    
+      private
+    
+        def reset_timer
+            cookies.delete(:timer_started_at)
+            # Add any additional logic you need when the timer reaches zero
+        end
+        
+        def booking_create_params
         params.require(:booking).permit(:service_id)
     end    
    

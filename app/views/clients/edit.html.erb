@@ -1,4 +1,10 @@
 Edit Profile
+<% @client.photos.each do |photo| %>
+
+<%= image_tag photo %>
+
+<% end %>
+
 
 <%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
 
@@ -19,6 +25,9 @@ Edit Profile
 
     <%= form.label :location %>
     <%= form.text_field :location %><br>
+
+
+    <%= form.file_field :photos, multiple: true %>
 
     <%= form.submit %>
 

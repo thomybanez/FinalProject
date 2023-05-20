@@ -1,4 +1,7 @@
 class Client < ApplicationRecord
+    #active storage
+    has_many_attached :photos
+
     #bcrypt
     has_secure_password
 

@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
         session[:selected_performer] = params[:id]
         @selected_performer = Performer.find_by(id: session[:selected_performer])
         @service = Service.where(performer_id: session[:selected_performer])
-        @booking = Booking.new       
+        @booking = Booking.new
         
     end
 
@@ -42,6 +42,7 @@ class ClientsController < ApplicationController
 
     def update
         @client = Client.find_by(token: session[:client_token])
+        @photos = @client.photos
 
         if @client.update(client_update_params)
             redirect_to clients_dashboard_path(@client)
@@ -61,7 +62,7 @@ class ClientsController < ApplicationController
     end
 
     def client_update_params
-        params.require(:client).permit(:nick_name, :contact_number, :age, :gender, :location)
+        params.require(:client).permit(:nick_name, :contact_number, :age, :gender, :location, photos: [])
     end    
 
     def current_client
