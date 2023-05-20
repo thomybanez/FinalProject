@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   #Bookings#
   get '/bookings/show', to: 'bookings#show', as: 'bookings_show'
-
+  get '/bookings/permission', to: 'bookings#permission', as: 'bookings_permission'
   post '/bookings/create/performer/:id', to: 'bookings#create', as: 'bookings_create'
 
   #Services#

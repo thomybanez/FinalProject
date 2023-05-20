@@ -1,5 +1,7 @@
-Bookings Show Review Information
+Review Booking Details
+<br>
+<%= render "client" %><br>
+<%= render "performer" %><br>
+<%= render "service" %><br>
 
-<%= @booking.inspect %>
-<%= render "client" %>
-<%= render "performer" %>
+<%= link_to "Confirm", bookings_permission_path %>
