@@ -34,13 +34,16 @@ class PerformersController < ApplicationController
     end
 
     def edit
-        @performer = Performer.find_by(token: session[:performer_token])    
+        @performer = Performer.find_by(token: session[:performer_token])
+        @photos = @performer.photos
     end
 
     def update
         @performer = Performer.find_by(token: session[:performer_token])
+        @photos = @performer.photos
 
         if @performer.update(performer_update_params)
+            @performer.resize_photos(@photos)
             redirect_to performers_dashboard_path(@performer)
         else
             render :edit
@@ -58,7 +61,7 @@ class PerformersController < ApplicationController
     end
 
     def performer_update_params
-        params.require(:performer).permit(:stage_name, :description, :contact_number, :age, :gender, :location)
+        params.require(:performer).permit(:stage_name, :description, :contact_number, :age, :gender, :location, photos: [])
 
     end
 

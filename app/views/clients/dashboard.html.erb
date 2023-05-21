@@ -10,13 +10,23 @@ Client Dashboard
     <p>Gender: <%= @client.gender %></p>
 <% end %>
 
-<% @performer.each do |performer| %>    
-    <div style="background-color: rgb( 150, 150, 150)">
-    <%= link_to clients_show_path(performer.id) do %>
-          <h4><%= performer.stage_name %></h4>
-          <p>Age: <%= performer.age %></p>
-          <p>Gender: <%= performer.gender %></p>
-    <% end %>
-    </div>
-<% end %>
 
+
+<% @performer.each do |performer| %>
+
+	<div class="container">
+	<div class="box" style="--i:0;">
+		<i></i>
+		<div class="content">
+			<% performer.photos.each do |photo| %>
+			<%= image_tag photo.variant(resize_to_fill: [200, 300]) %>
+				<h2><%= performer.stage_name %><br>
+				<span>Age: <%= performer.age %></span><br>
+				<span>Gender: <%= performer.gender %></span></h2>
+				<%= link_to "Book Now", clients_show_path(performer.id) %>
+			<% end %>
+		</div>
+	</div>
+	</div>
+
+  <% end %> 

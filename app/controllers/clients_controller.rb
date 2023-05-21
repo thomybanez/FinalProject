@@ -26,7 +26,17 @@ class ClientsController < ApplicationController
     def dashboard
         @client = current_client
         @performer = Performer.all
+        @performer_photos = []
+
+        @performer.each do |performer|
+            performer_photos = performer.photos
+            performer_photos.each do |photo|
+                @performer_photos << photo
+                puts "PERFORMER PHOTOS #{@performer_photos.inspect}"
+            end
+        end
     end
+
 
     def show
         session[:selected_performer] = params[:id]
@@ -72,8 +82,4 @@ class ClientsController < ApplicationController
           @current_client ||= Client.find_by(token: session[:client_token])
         end
     end
-
-    
-
-
 end

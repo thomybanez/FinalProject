@@ -12,6 +12,7 @@ class Client < ApplicationRecord
     has_one :wallet, as: :owner
     has_one :booking
 
+
     #callbacks
     after_create :create_wallet
 
@@ -26,7 +27,6 @@ class Client < ApplicationRecord
             end
         end
     end
-
 
     def create_wallet
         self.build_wallet(balance: 0).save
