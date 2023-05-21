@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+# Add image processing gemfile 
+gem 'image_processing', '~> 1.2'
+
 # Add RSpec to your Gemfile and bundle install:
 group :development, :test do
   gem 'rspec-rails'

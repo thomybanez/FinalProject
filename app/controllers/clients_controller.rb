@@ -38,6 +38,7 @@ class ClientsController < ApplicationController
 
     def edit
         @client = Client.find_by(token: session[:client_token])
+        @photos = @client.photos
     end
 
     def update
@@ -45,6 +46,7 @@ class ClientsController < ApplicationController
         @photos = @client.photos
 
         if @client.update(client_update_params)
+            @client.resize_photos(@photos)
             redirect_to clients_dashboard_path(@client)
         else
             render :edit

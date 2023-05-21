@@ -1,16 +1,15 @@
-HOME
-
 <div style="display:flex">
-    <div style="flex:0.5">
-        Client
-        <%= link_to "Client's Page", clients_home_path %>
-    </div>
-    
-
-    <div style="flex:0.5">
-        Artist
-        <%= link_to "Performer's Page", performers_home_path %>
-
-        </div>
-
+  <div style="flex:0.5">   
+    <%= link_to clients_home_path, class: 'neon-button' do %>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Client Login
+    <% end %>
+  </div>
+  <div style="flex:0.5">
+    Artist
+    <%= link_to performers_home_path %>
+  </div>
 </div>

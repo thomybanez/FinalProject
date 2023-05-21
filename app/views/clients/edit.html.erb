@@ -1,10 +1,17 @@
-Edit Profile
-<% @client.photos.each do |photo| %>
+<% if @photos.present? %>  
 
-<%= image_tag photo %>
+<div class="container">
+	<div class="box" style="--i:0;">
+		<i></i>
+		<div class="content">
+        <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>
+			<h2>Someone Famous<br><span>UX/UI Designer</span></h2>
+			<a href="#">Hire Me</a>
+		</div>
+	</div>
+</div>
 
 <% end %>
-
 
 <%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
 
