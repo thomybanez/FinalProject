@@ -1,6 +1,11 @@
 <div>
-<p class="neon-button"><%= link_to "Profile", clients_edit_path %></p>
-<%= link_to "Activities", bookings_show_path %>
-<%= link_to "Logout", users_home_path %><br>
+
+<h1 class="nav-flicker" style="display:flex; flex-direction: column;">  
+  <%= link_to "Pr<span class=\"delay1\">o</span>file".html_safe, clients_edit_path %>
+  <%= link_to "Activi<span class=\"delay2\">t</span>y".html_safe, bookings_show_path %>
+  <%= link_to "Lo<span class=\"delay3\">g</span>out".html_safe, users_home_path %><br>
+</h1>
+
+
 </div>
 

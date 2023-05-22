@@ -4,14 +4,14 @@
 	<div class="box" style="--i:0;">
 		<i></i>
 		<div class="content">
-        <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>
-			<h2>Someone Famous<br><span>UX/UI Designer</span></h2>			
+        <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>				
 		</div>
 	</div>
 </div>
 
 <% end %>
 
+<div style="color: white;">
 <%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
 
     <%= form.label :email%>
@@ -36,6 +36,5 @@
     <%= form.file_field :photos, multiple: true %>
 
     <%= form.submit %>
-
-
 <% end %>
+</div>

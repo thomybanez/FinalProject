@@ -2,20 +2,32 @@
 
 	<div style="display:flex;">
 
-		<div style="display:flex; flex-direction: column; justify-content: center; position: fixed; bottom: 0; left: 0; z-index:100; background-color: #0a1538 ; width: 200px; height: 100vh">
-		<%= render "navigation" %>
-		<%= link_to clients_edit_path(@client) do %>
+		<div style="
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		position: fixed; 
+		bottom: 0; left: 0; 
+		z-index: 100; 
+		background-color: #0a1538;
+		width: 250px;
+		height: 100vh;		
+		">
+
+	<%= render "navigation" %>
+		
+		<div style="color: white;">
 			<h4>Nickname:<%= @client.nick_name %></h4>
 			<p>Age: <%= @client.age %></p>
-			<p>Gender: <%= @client.gender %></p>						
-		<% end %>
-
+			<p>Gender: <%= @client.gender %></p>
+		</div>		
 			
-		</div>
+	</div>
 		
 		
 
-					<div style="display:column;margin-left: 200px;height:100vh; align-items:center;">
+					<div style="display:column;margin-left: 300px;height:100vh; align-items:center;">
 					<div class="neon-container">
 						<div class="neon">SING </div>
 						<div class="flux">DANCE </div>

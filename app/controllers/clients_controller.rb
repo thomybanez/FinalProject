@@ -57,7 +57,7 @@ class ClientsController < ApplicationController
 
         if @client.update(client_update_params)
             @client.resize_photos(@photos)
-            redirect_to clients_dashboard_path(@client)
+            redirect_to clients_edit_path(@client)
         else
             render :edit
         end
