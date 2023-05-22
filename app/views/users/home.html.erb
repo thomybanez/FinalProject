@@ -1,21 +1,21 @@
-<div style="display:flex">
-  <div style="flex:0.5">   
-    <%= link_to clients_home_path, class: 'neon-button' do %>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Client's Login
-    <% end %>
-  </div>
+<div class="background-container" style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
+  
+  <div style="display:flex; border: 1px solid white;">
 
-  <div style="display:flex">
-  <div style="flex:0.5">   
-    <%= link_to performers_home_path, class: 'neon-button' do %>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Performer's Login
-    <% end %>
+      <%= link_to clients_home_path, class: 'neon-button' do %>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Client's Login
+      <% end %>
+    
+      <%= link_to performers_home_path, class: 'neon-button' do %>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Performer's Login
+      <% end %>   
   </div>
+</div>

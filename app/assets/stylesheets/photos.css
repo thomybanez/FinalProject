@@ -1,0 +1,8 @@
+.background-container {
+    background-image: url('/assets/nominor.jpg');   
+  }
+
+.opus-ktv{
+    background-image: url('/assets/KTV.jpg');
+    background-size: cover;
+}
