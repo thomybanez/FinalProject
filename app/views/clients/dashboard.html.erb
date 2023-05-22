@@ -1,32 +1,53 @@
-Client Dashboard
+<div style="height:100vh; width: 100%;">	
 
-<%= link_to "Profile", clients_edit_path %>
-<%= link_to "Activities", bookings_show_path %>
-<%= link_to "Logout", users_home_path %><br>
+	<div style="display:flex;">
 
-<%= link_to clients_edit_path(@client) do %>
-    <h4>Nickname:<%= @client.nick_name %></h4>
-    <p>Age: <%= @client.age %></p>
-    <p>Gender: <%= @client.gender %></p>
-<% end %>
+		<div style="border:5px solid red;position: fixed; top:0; left:0; z-index:100;background-color:gray; width: 200px; height: 100vh">
+		<%= render "navigation" %>
+		<%= link_to clients_edit_path(@client) do %>
+			<h4>Nickname:<%= @client.nick_name %></h4>
+			<p>Age: <%= @client.age %></p>
+			<p>Gender: <%= @client.gender %></p>						
+		<% end %>
 
-
-
-<% @performer.each do |performer| %>
-
-	<div class="container">
-	<div class="box" style="--i:0;">
-		<i></i>
-		<div class="content">
-			<% performer.photos.each do |photo| %>
-			<%= image_tag photo.variant(resize_to_fill: [200, 300]) %>
-				<h2><%= performer.stage_name %><br>
-				<span>Age: <%= performer.age %></span><br>
-				<span>Gender: <%= performer.gender %></span></h2>
-				<%= link_to "Book Now", clients_show_path(performer.id) %>
-			<% end %>
+			
 		</div>
-	</div>
-	</div>
+		
+		
 
-  <% end %> 
+					<div style="border:2px solid blue; display:column;margin-left: 200px;height:100vh; align-items:center;">
+					<div class="neon-container">
+						<div class="neon">SING </div>
+						<div class="flux">DANCE </div>
+						<div class="crab">FUN </div>
+					</div>
+
+
+					<div class="neon-text" style="position:fixed;">
+						<div class="lightbar"></div>
+						<div class="topLayer"></div>
+						<h2>ママさん日本のKTV</h2>
+					</div>
+
+
+						<div style="display:flex; margin-top: 80px;">
+						<% @performer.each do |performer| %>
+							<div class="container" style="margin: 10px;">
+								<div class="box" style="--i:0;">
+									<i></i>
+									<div class="content">
+										<% performer.photos.each do |photo| %>
+										<%= image_tag photo.variant(resize_to_fill: [200, 300]) %>
+											<h2><%= performer.stage_name %><br>
+											<span>Age: <%= performer.age %></span><br>
+											<span>Gender: <%= performer.gender %></span></h2>
+											<%= link_to "Book Now", clients_show_path(performer.id) %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+						<% end %>
+						</div>
+					</div>
+	</div>
+</div>
