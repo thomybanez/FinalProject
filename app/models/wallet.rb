@@ -1,3 +1,3 @@
 class Wallet < ApplicationRecord
-    belongs_to :owner, polymorphic: true
+  belongs_to :owner, polymorphic: true
 end
