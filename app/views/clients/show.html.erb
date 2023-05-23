@@ -1,31 +1,46 @@
-Show Performer Details
+<div style="display:flex;">
 
-<%= render "performer" %>
+		<div class="side-bar-menu">
+			<%= render "navigation" %>	
+			
+</div>
 
 
-Services Available
-<%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
-<table>
-    <thead>
-        <tr>
-            <th>category</th>
-            <th>service name</th>
-            <th>rate per hour</th>
-            <th>no. of hour/s</th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @service.each do |service| %>
-        <tr>            
-            <td><%= service.category %></td>
-            <td><%= service.service_name %></td>
-            <td><%= service.rate_hour %></td>
-            <td><%= form.radio_button :service_id, service.id %>
-        <tr>    
-    <% end %>    
-    </tbody>
-    
-</table>
-<%= form.submit "Book Now" %>
-<% end %>
 
+
+
+<div style="color: white; display: flex; align-items: center; justify-content: center; border: 2px solid red; width: 100%">
+    <div style="border: 2px solid blue; height: 40vmin; width: 40vmin; position: fixed; left: 0; top: 0;">
+    <%= render "performer" %><br>
+    </div>
+    <%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
+        Services Available<br>
+        <table style="background-color: green; border: 2px solid white; height: 300px; width: 500px; color: white; border-radius: 20px;">
+        <thead>
+            <tr>
+                <th>category</th>
+                <th>service name</th>
+                <th>rate per hour</th>
+                <th>no. of hour/s</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @service.each do |service| %>
+            <tr>            
+                <td><%= service.category %></td>
+                <td><%= service.service_name %></td>
+                <td><%= service.rate_hour %></td>
+                <td><%= form.radio_button :service_id, service.id %>
+            <tr>    
+        <% end %>    
+        </tbody>
+        </div>
+    </table>
+
+        <div style="border: 2px solid white; text-align: center;">
+            <%= form.submit "Book Now" %>
+        </div>
+    <% end %>
+
+
+</div>

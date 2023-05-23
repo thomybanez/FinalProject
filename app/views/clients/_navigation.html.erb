@@ -1,6 +1,7 @@
 <div>
 
-<h1 class="nav-flicker" style="display:flex; flex-direction: column;">  
+<h1 class="nav-flicker" style="display:flex; flex-direction: column;">
+  <%= link_to "Hom<span class=\"delay1\">e</span>".html_safe, clients_dashboard_path %>
   <%= link_to "Pr<span class=\"delay1\">o</span>file".html_safe, clients_edit_path %>
   <%= link_to "Activi<span class=\"delay2\">t</span>y".html_safe, bookings_show_path %>
   <%= link_to "Lo<span class=\"delay3\">g</span>out".html_safe, users_home_path %><br>

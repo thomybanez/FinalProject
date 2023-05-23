@@ -2,23 +2,12 @@
 
 	<div style="display:flex;">
 
-		<div style="
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
-		position: fixed; 
-		bottom: 0; left: 0; 
-		z-index: 100; 
-		background-color: #0a1538;
-		width: 250px;
-		height: 100vh;		
-		">
-
-	<%= render "navigation" %>
+		<div class="side-bar-menu">
+			<%= render "navigation" %>
 		
-		<div style="color: white;">
-			<h4>Nickname:<%= @client.nick_name %></h4>
+			
+		<div style="color: white; position: fixed; left: 0; bottom: 0;">
+		<h4>Welcome, <%= @client.nick_name %></h4>
 			<p>Age: <%= @client.age %></p>
 			<p>Gender: <%= @client.gender %></p>
 		</div>		

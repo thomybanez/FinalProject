@@ -38,6 +38,15 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @performer = Performer.find_by(id: params[:id])
+    @performer_photos = []
+  
+    performer_photos = @performer.photos
+    performer_photos.each do |photo|
+      @performer_photos << photo
+      puts "PERFORMER PHOTOS: #{@performer_photos.inspect}"
+    end  
+    
     session[:selected_performer] = params[:id]
     @selected_performer = Performer.find_by(id: session[:selected_performer])
     @service = Service.where(performer_id: session[:selected_performer])
