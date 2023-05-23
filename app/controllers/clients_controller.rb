@@ -1,4 +1,5 @@
-class ClientsController < ApplicationController
+class ClientsController < ApplicationController  
+
   def register
     @client = Client.new
   end
@@ -13,7 +14,7 @@ class ClientsController < ApplicationController
     end
   end
 
-  def login_submit
+  def login_submit    
     if @client = Client.authenticate(params[:email], params[:password])
       session[:client_token] = @client.token
       redirect_to clients_dashboard_path(@client)
@@ -23,9 +24,9 @@ class ClientsController < ApplicationController
   end
 
   def dashboard
-    @client = current_client
+    @client = Client.find_by(token: session[:client_token])
     @performer = Performer.all
-    @performer_photos = []
+    @performer_photos = []    
 
     @performer.each do |performer|
       performer_photos = performer.photos
@@ -60,8 +61,7 @@ class ClientsController < ApplicationController
     end
   end
 
-  def logout
-    session.delete(:client_token)
+  def logout    
     redirect_to users_home_path
   end
 
@@ -75,9 +75,5 @@ class ClientsController < ApplicationController
     params.require(:client).permit(:nick_name, :contact_number, :age, :gender, :location, photos: [])
   end
 
-  def current_client
-    return unless session[:client_token]
-
-    @current_client ||= Client.find_by(token: session[:client_token])
-  end
+  
 end

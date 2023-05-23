@@ -15,6 +15,7 @@ class Client < ApplicationRecord
   # callbacks
   after_create :create_wallet
 
+
   def resize_photos(photos)
     photos.each do |photo|
       if photo.blob.byte_size < 400.kilobytes
@@ -46,4 +47,9 @@ class Client < ApplicationRecord
       false
     end
   end
+
+  
+
+
+
 end

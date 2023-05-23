@@ -1,19 +1,21 @@
-Client Register
 
-<%= form_with scope: @client, url: clients_create_path , method: 'post', html: {autocomplete: "off"}  do |form| %>
+<div style="color: white;">
+  <%= form_with scope: @client, url: clients_create_path , method: 'post', html: {autocomplete: "off"}  do |form| %>
 
-    <%= form.label :email %><br>
-    <%= form.text_field :email %><br>
+      <%= form.label :email %><br>
+      <%= form.text_field :email %><br>
 
-    <%= form.label :password %><br>
-    <%= form.password_field :password %><br>
+      <%= form.label :password %><br>
+      <%= form.password_field :password %><br>
 
-    <%= form.label :password_confirmation %><br>
-    <%= form.password_field :password_confirmation %><br>
+      <%= form.label :password_confirmation %><br>
+      <%= form.password_field :password_confirmation %><br>
+    <div style="display: flex; align-item: center; justify-content: center; margin-top: 30px;">
+      <%= form.submit "Register"%>
+    </div>
 
-    <%= form.submit %>
-
-<% end %>
+  <% end %>
+</div>
 
 <div style="color:red">
 <% @client.errors.full_messages.each do |error| %>

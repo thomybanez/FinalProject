@@ -1,14 +1,14 @@
-Client Login
+<div style="color: white;">
+    <%= form_with scope: @client, url: clients_login_submit_path, html: {autocomplete: "off"} do |form|%>
+    <%= @client %>
+        <%= form.label :email %><br>
+        <%= form.text_field :email %><br>
 
-<%= form_with scope: @client, url: clients_login_submit_path, html: {autocomplete: "off"} do |form|%>
-<%= @client %>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %><br>
+        <%= form.label :password %><br>
+        <%= form.password_field :password %><br>
 
-    <%= form.label :password %><br>
-    <%= form.password_field :password %><br>
-
-    <%= form.submit "login" %>
-
-
-<% end %>
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+        <%= form.submit "Login" %>
+        </div>
+    <% end %>
+</div>

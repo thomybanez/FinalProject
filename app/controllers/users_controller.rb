@@ -1,3 +1,6 @@
 class UsersController < ApplicationController
-  def home; end
+  def home
+    session.delete(:client_token)
+    puts "HOME NOTTTTTTTTTTTTTTHING??? #{session[:client_token]}"
+  end
 end

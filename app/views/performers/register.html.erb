@@ -1,22 +1,46 @@
-Performers Register
+<div style="color: white; width: 210px; height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <%= form_with scope: @performer, url: performers_create_path ,  method: 'post', html: {autocomplete: "off"}  do |form| %>
 
-<%= form_with scope: @performer, url: performers_create_path ,  method: 'post', html: {autocomplete: "off"}  do |form| %>
 
-    <%= form.label :email %><br>
-    <%= form.text_field :email %><br>
 
-    <%= form.label :password %><br>
-    <%= form.password_field :password %><br>
+    <div class="label">
+      <%= form.label :email %>
+      <div class="field"><%= form.text_field :email %></div>
+    </div>
 
-    <%= form.label :password_confirmation %><br>
-    <%= form.password_field :password_confirmation %><br>
+          <div class="errors">
+                <% @performer.errors[:email].each do |error| %>
+                  <%= error %>
+                <% end %>
+          </div>
 
-    <%= form.submit %>
+    <div class="label">
+      <%= form.label :password %>
+      <div class="field"><%= form.password_field :password %></div>
+      </div>
+    
+      <div class="errors">
+                <% @performer.errors[:password].each do |error| %>
+                  <%= error %>
+                <% end %>
+            </div>
 
-<% end %>
+    <div class="label">
+      <%= form.label :password_confirmation %>
+      <div class="field"><%= form.password_field :password %></div>
+      </div>
 
-<div style="color:red">
-<% @performer.errors.full_messages.each do |error| %>
-    <%= error %><br>
+      <div class="errors">
+                <% @performer.errors[:password].each do |error| %>
+                  <%= error %>
+                <% end %>
+            </div>
+
+
+      <div class="submit">
+        <%= form.submit %>
+      </div>
+
   <% end %>
 </div>
+

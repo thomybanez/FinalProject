@@ -6,3 +6,7 @@
     background-image: url('/assets/KTV.jpg');
     background-size: cover;
 }
+
+.hallway{
+  background-image: url('/assets/hallway.jpg');
+}

@@ -1,21 +1,47 @@
-<div class="background-container" style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
-  
-  <div style="display:flex; border: 1px solid white;">
+<div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">  
 
-      <%= link_to clients_home_path, class: 'neon-button' do %>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Client's Login
-      <% end %>
-    
-      <%= link_to performers_home_path, class: 'neon-button' do %>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Performer's Login
-      <% end %>   
+
+
+  <div style="display:flex; border: 1px solid white;">
+    <div>
+        <div class="neon-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Clients
+          </div>
+
+        <div style="display:flex; ">
+            <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">     
+                <%= link_to 'Login', clients_login_path %>
+              </div>
+
+            <div style="flex:0.5; display: flex; align-items: center; justify-content: center;">  
+                <%= link_to 'Register', clients_register_path %>
+              </div>
+        </div>          
+    </div>
+
+    <div>
+        <div class="neon-button-pink">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Performers
+          </div>
+
+        <div style="display:flex">
+            <div style="flex: 0.5; display: flex; align-items: center; justify-content: center;">     
+                <%= link_to 'Login', performers_login_path %>
+            </div>
+        
+            <div style="flex:0.5; display: flex; align-items: center; justify-content: center;"">       
+                <%= link_to 'Register', performers_register_path %>
+            </div>
+        </div>        
+    </div>
+
   </div>
 </div>
