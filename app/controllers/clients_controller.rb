@@ -26,18 +26,7 @@ class ClientsController < ApplicationController
   def dashboard
     @client = Client.find_by(token: session[:client_token])
     @performer = Performer.all
-    @performer_photos = []
-    @single = []
 
-
-    @performer.each do |performer|
-      performer_photos = performer.photos
-      @single << performer.photos
-      performer_photos.each do |photo|
-        @performer_photos << photo
-        puts "PERFORMER PHOTOS #{@performer_photos.inspect}"
-      end
-    end
   end
 
   def show

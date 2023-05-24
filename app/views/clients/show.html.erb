@@ -8,21 +8,30 @@
         <div class="right">
                 <div class="neon-container">			
                     <div class="crab">Sweet</div>
-                    <div class="flux" style="font-size: 36px">Sweet</div><br>
-                    <div class="neon" style="font-size: 63px">Baby</div>
+                    <div class="flux" style="font-size: 80px;">Vibe</div><br>
+                    <div class="neon" style="font-size: 60px;">Baby</div>      
                 </div>     
-                
 
-                <div style="display: flex; align-items: center; justify-content: center; border: 20px solid red; height: 100vh;">
-                    <div class="content" style="display: flex; flex-direction: column;">
-                        <div class="box" style="--i:0;">
-                            <i></i>
-                        <% @performer_photos.each do |photo| %>
-                            <div"><%= image_tag photo.variant(resize_to_fill: [200, 300]) %></div>
-                        <% end %>
+                <div class="neon-text" style="position:fixed;">
+					<div class="lightbar"></div>
+					<div class="topLayer"></div>
+					<h2>MaMaママさん日本のKTV</h2>
+				</div>                
+
+                <div style="display: flex; margin-top: 80px;">
+                
+					<% @performer.photos.each do |photo| %>
+						<div class="container" style="margin: 10px; border: 2px solid red;">
+							<div class="box" style="--i:0;">
+								<i></i>
+                                <div class="content">										
+                                    <%= image_tag photo.variant(resize_to_fill: [200, 300]) %>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+					<% end %>
+                    
+				</div>
 
             <div class="table-container">
                 <div class="performer-display-details">
