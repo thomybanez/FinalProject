@@ -1,46 +1,61 @@
-<div style="display:flex;">
+<div class="opus-ktv" style="height:100vh; width: 100%;">
 
-		<div class="side-bar-menu">
-			<%= render "navigation" %>	
-			
-</div>
-
-
-
-
-
-<div style="color: white; display: flex; align-items: center; justify-content: center; border: 2px solid red; width: 100%">
-    <div style="border: 2px solid blue; height: 40vmin; width: 40vmin; position: fixed; left: 0; top: 0;">
-    <%= render "performer" %><br>
-    </div>
-    <%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
-        Services Available<br>
-        <table style="background-color: green; border: 2px solid white; height: 300px; width: 500px; color: white; border-radius: 20px;">
-        <thead>
-            <tr>
-                <th>category</th>
-                <th>service name</th>
-                <th>rate per hour</th>
-                <th>no. of hour/s</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% @service.each do |service| %>
-            <tr>            
-                <td><%= service.category %></td>
-                <td><%= service.service_name %></td>
-                <td><%= service.rate_hour %></td>
-                <td><%= form.radio_button :service_id, service.id %>
-            <tr>    
-        <% end %>    
-        </tbody>
+    <div style="display:flex;">
+        <div class="side-bar-menu">
+            <%= render "navigation" %>
         </div>
-    </table>
 
-        <div style="border: 2px solid white; text-align: center;">
-            <%= form.submit "Book Now" %>
+        <div class="right">
+                <div class="neon-container">			
+                    <div class="crab">Sweet</div>
+                    <div class="flux" style="font-size: 36px">Sweet</div><br>
+                    <div class="neon" style="font-size: 63px">Baby</div>
+                </div>     
+                
+
+                <div style="display: flex; align-items: center; justify-content: center; border: 20px solid red; height: 100vh;">
+                    <div class="content" style="display: flex; flex-direction: column;">
+                        <div class="box" style="--i:0;">
+                            <i></i>
+                        <% @performer_photos.each do |photo| %>
+                            <div"><%= image_tag photo.variant(resize_to_fill: [200, 300]) %></div>
+                        <% end %>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="table-container">
+                <div class="performer-display-details">
+                    <%= render "performer" %><br>
+                </div>                
+
+                <%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
+                    <table class="table">            
+                        <thead>                
+                            <tr>
+                            <th colspan="4">Special Menu</th>             
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% @service.each do |service| %>
+                                <tr>            
+                                    <td><%= service.category %></td>
+                                    <td><%= service.service_name %></td>
+                                    <td><%= service.rate_hour %></td>
+                                    <td><%= form.radio_button :service_id, service.id %></td>                           
+                                </tr>                      
+                            <% end %>
+                            <tr>
+                                <td colspan="4" style="text-align: center;"><%= form.submit "Book Now" %></td>
+                            </tr>
+                            
+                        </tbody>                
+                    </table>            
+                <% end %>
+
+                
+            </div>
         </div>
-    <% end %>
-
-
+    </div>        
 </div>

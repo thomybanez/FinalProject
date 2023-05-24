@@ -26,10 +26,13 @@ class ClientsController < ApplicationController
   def dashboard
     @client = Client.find_by(token: session[:client_token])
     @performer = Performer.all
-    @performer_photos = []    
+    @performer_photos = []
+    @single = []
+
 
     @performer.each do |performer|
       performer_photos = performer.photos
+      @single << performer.photos
       performer_photos.each do |photo|
         @performer_photos << photo
         puts "PERFORMER PHOTOS #{@performer_photos.inspect}"
@@ -38,14 +41,17 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find_by(token: session[:client_token])
     @performer = Performer.find_by(id: params[:id])
     @performer_photos = []
   
     performer_photos = @performer.photos
-    performer_photos.each do |photo|
-      @performer_photos << photo
-      puts "PERFORMER PHOTOS: #{@performer_photos.inspect}"
-    end  
+      performer_photos.each do |photo|
+        @performer_photos << photo
+        puts "PERFORMER PHOTOS: #{@performer_photos.inspect}"
+      end
+    
+      puts "COUNTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR #{@performer_photos.count}"
     
     session[:selected_performer] = params[:id]
     @selected_performer = Performer.find_by(id: session[:selected_performer])
