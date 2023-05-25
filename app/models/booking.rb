@@ -9,11 +9,11 @@ class Booking < ApplicationRecord
     if booking
       booking.update(service_id:, performer_id:)
       booking.save
-
     else
       booking = Booking.new(client_id:, performer_id:, service_id:)
       booking.save
     end
     booking
+    
   end
 end

@@ -2,11 +2,15 @@ class BookingsController < ApplicationController
   def create
     @client = Client.find_by(token: session[:client_token])
     @selected_performer = Performer.find_by(id: session[:selected_performer])
-    session[:selected_service] = params[:booking][:service_id]
-    @selected_service = Service.find_by(id: session[:selected_service])
 
-    booking = Booking.create_update(@client.id, @selected_performer.id, @selected_service.id)
-    redirect_to bookings_show_path
+    if params[:booking].present? && params[:booking][:service_id].present?
+      session[:selected_service] = params[:booking][:service_id]
+      @selected_service = Service.find_by(id: session[:selected_service])
+      booking = Booking.create_update(@client.id, @selected_performer.id, @selected_service.id)
+      redirect_to bookings_show_path
+    else
+      redirect_to clients_show_path(@selected_performer)
+    end
   end
 
   def show

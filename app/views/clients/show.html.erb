@@ -34,7 +34,7 @@
 				</div>
 
             <div class="table-container" style="position: fixed; right: 0; top: 20vh;">
-                <%= form_with scope: @booking, url: bookings_create_path, html: { autocomplete: "off" } do |form| %>
+                <%= form_with scope: @booking, url: bookings_create_path(@client.id), html: { autocomplete: "off" } do |form| %>
                     <table class="table">            
                         <thead>                
                             <tr>

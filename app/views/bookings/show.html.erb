@@ -1,7 +1,12 @@
+<div style="color: white;">
+
 Review Booking Details
 <br>
 <%= render "client" %><br>
 <%= render "performer" %><br>
 <%= render "service" %><br>
 
-<%= link_to "Confirm", bookings_permission_path %>
+<%= link_to "Send Request", bookings_permission_path %>
+<%= link_to "Return", clients_show_path(@selected_performer.id) %>
+
+</div>
