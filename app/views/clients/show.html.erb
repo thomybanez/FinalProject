@@ -12,17 +12,17 @@
                     <div class="neon">Baby</div>      
                 </div>     
 
-                <div class="neon-text" style="position:fixed;">
-					<div class="lightbar"></div>
-					<div class="topLayer"></div>
-					<h2><%= @performer.stage_name %> <%= @performer.age %>Yrs <%= @performer.gender %></h2>                    
+                <div style="position:fixed;">
+					<div></div>
+					<div></div>
+					<h2></h2>                    
 				</div>                
 
                 <div style="display: flex; margin-top: 80px;">
                 
 					<% @performer.photos.each do |photo| %>
-						<div class="container" style="margin: 10px; border:">
-							<div class="box" style="--i:0;">
+						<div class="container-performer" style="margin: 10px; border:">
+							<div class="box-performer" style="--i:0;">
 								<i></i>
                                 <div class="content">										
                                     <%= image_tag photo.variant(resize_to_fill: [200, 300]) %>
@@ -33,12 +33,12 @@
                     
 				</div>
 
-            <div class="table-container" style="position: fixed; right: 0; top: 20vh;">
+            <div class="table-container" style="">
                 <%= form_with scope: @booking, url: bookings_create_path(@client.id), html: { autocomplete: "off" } do |form| %>
                     <table class="table">            
-                        <thead>                
-                            <tr>
-                            <th colspan="4">Special Menu</th>             
+                        <thead>
+                            <tr>                            
+                                <th colspan="4">Special Menu</th>             
                             </tr>
                         </thead>
 

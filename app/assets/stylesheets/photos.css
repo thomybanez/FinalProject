@@ -10,3 +10,8 @@
 .hallway{
   background-image: url('/assets/hallway.jpg');
 }
+
+.club-stage{
+    background-image: url('/assets/clubstage.jpg');
+    background-size: cover;
+}

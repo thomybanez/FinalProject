@@ -1,16 +1,46 @@
-Performer Edit
+<div class="club-stage" style="height:100vh; width: 100%;">	
 
-<% if @photos.present? %>
-    <div class="container">
-        <div class="box" style="--i:0;">
-            <i></i>
-            <div class="content">
-            <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>
-                <h2>You<br><span>Give your best shot</span></h2>			
-            </div>
+	<div style="display:flex;">
+		<div class="side-bar-menu">
+			<%= render "navigation" %>		
+		</div>	
+
+		<div class="right" style="margin-left: 390px;">
+				<div class="neon-container">
+					<div class="neon">SING </div>
+					<div class="flux">DANCE </div>
+					<div class="crab">FUN </div>
+				</div>
+
+				<div class="neon-text" style="position:fixed;">
+					<div class="lightbar"></div>
+					<div class="topLayer"></div>
+					<h2>MaMaママさん日本のKTV</h2>
+				</div>
+
+                <div style="display:flex; margin-top: 80px; width: 50vw;">
+                <% if @performer.photos.present? %>
+                    <% @performer.photos.each do |photos| %>
+                        <div class="container-performer">
+                            <div class="box-performer" style="--i:0;">
+                                <i></i>
+                                <div class="content">
+                                    <%= image_tag photos.variant(resize_to_fill: [1000, 1000]) %>                    
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+                </div>
+        
         </div>
     </div>
-<% end %>
+</div>
+
+
+
+
+
 
 <%= form_with scope: @performer, url: performers_update_path, html: { autocomplete: "off"} do |form| %>
     

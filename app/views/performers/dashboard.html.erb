@@ -1,25 +1,24 @@
-Performer Dashboard
+<div class="club-stage" style="height:100vh; width: 100%;">	
 
-<%= link_to "Profile", performers_edit_path %>
-<%= link_to "Requests" %>
-<%= link_to "Talents", services_show_path %>
-<%= link_to "Logout", users_home_path %><br>
+	<div style="display:flex;">
+		<div class="side-bar-menu">
+			<%= render "navigation" %>		
+		</div>	
 
-<%= link_to performers_edit_path(@performer) do %>
-    <h4>Nickname:<%= @performer.stage_name %></h4>
-    <p>Age: <%= @performer.age %></p>
-    <p>Gender: <%= @performer.gender %></p>
-<% end %>
+		<div class="right">
+				<div class="neon-container">
+					<div class="flux">Guest</div>
+					<div class="neon">Show</div>
+					<div class="crab">Time</div>
+				</div>
 
-<% @client.each do |client| %>
-    <div style="background-color: rgb( 150, 150, 150)">
-    <%= link_to performers_show_path(client) do %>
-        <h4><%= client.nick_name %></h4>
-        <p><%= client.age %></p>
-        <p><%= client.gender %></p>   
-    <% end %>
-    </div>    
-<% end %>
-
-
+				<div class="neon-text" style="position:fixed;">
+					<div class="lightbar"></div>
+					<div class="topLayer"></div>
+					<h2>MaMaママさん日本のKTV</h2>
+				</div>
+        
+        </div>
+    </div>
+</div>
 
