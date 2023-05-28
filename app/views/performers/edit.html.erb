@@ -10,13 +10,7 @@
 					<div class="neon">Guest </div>
 					<div class="flux">Show </div>
 					<div class="crab">Time </div>
-				</div>
-
-				<div class="neon-text" style="position:fixed;">
-					<div class="lightbar"></div>
-					<div class="topLayer"></div>
-					<h2>MaMaママさん日本のKTV</h2>
-				</div>
+				</div>				
 
                 <div style="display:flex; margin-top: 80px; width: 50vw;">
                 <% if @performer.photos.present? %>
@@ -32,7 +26,62 @@
                     <% end %>
                 <% end %>
                 </div>
-        
+
+                <div style="position: fixed; bottom: 20px; border: 2px solid white; z-index: 999999; color: white; padding: 20px; background-color: #0e1538; border-radius: 20px;">
+                    <%= form_with scope: @performer, url: performers_update_path, html: { autocomplete: "off"} do |form| %>
+                
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label :stage_name %>
+                            <div>
+                                <%= form.text_field :stage_name %><br>
+                            </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label :description %>
+                            <div>
+                                <%= form.text_field :description %><br>
+                            </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label "Phone" %>
+                            <div>
+                                <%= form.text_field :contact_number %><br>
+                            </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label :age %>
+                            <div>
+                                <%= form.text_field :age %><br>
+                            </div>
+                        </div>
+
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label :gender %>
+                            <div>
+                                <%= form.text_field :gender %><br>
+                            </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.label :location %>
+                            <div>
+                                <%= form.text_field :location %><br>
+                            </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                                <%= form.file_field :photos, multiple: true %>
+                            <div>
+                                <%= form.submit "Save" %>
+                            </div>
+                        </div>
+
+                    <% end %>
+                 </div>        
         </div>
     </div>
 </div>
@@ -41,29 +90,3 @@
 
 
 
-
-<%= form_with scope: @performer, url: performers_update_path, html: { autocomplete: "off"} do |form| %>
-    
-    <%= form.label :stage_name %>
-    <%= form.text_field :stage_name %><br>
-
-    <%= form.label :description %>
-    <%= form.text_field :description %><br>
-
-    <%= form.label :contact_number %>
-    <%= form.text_field :contact_number %><br>
-
-    <%= form.label :age %>
-    <%= form.text_field :age %><br>
-
-    <%= form.label :gender %>
-    <%= form.text_field :gender %><br>
-
-    <%= form.label :location %>
-    <%= form.text_field :location %><br>
-
-    <%= form.file_field :photos, multiple: true %>
-
-    <%= form.submit %>
-
-<% end %>
