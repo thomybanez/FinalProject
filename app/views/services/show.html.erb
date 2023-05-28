@@ -3,7 +3,7 @@
 			<%= render "navigation" %>		
 		</div>	
     <div class="club-stage" style="border: 2px solid red; width: 100vw; display: flex; align-items: center; justify-content: center;">
-		<div class="right" style="display: flex; align-items: center; justify-content: center; color: white; width: 500px;">
+		<div class="right" style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; width: 500px;">
 				<div class="neon-container" style="margin-left: 300px">
 					<div class="flux">Guest</div>
 					<div class="neon">Show</div>
@@ -11,16 +11,18 @@
 				</div>
 
 
-            <table style="background-color: #0e1538; padding: 20px; border-radius: 20px; z-index: 9999;">
-                <thead>
-                    <tr>
+            <table style="background-color: #0e1538; padding: 20px; border-radius: 20px; z-index: 101; border: 2px solid white;">
+                <thead>                
+                    <tr>                    
                         <th>Category:</th>
                         <th>Name:</th>
                         <th>Fee:</th>
                         <th>hr/s:</th>
                         <th>Action:</th>
                     </tr>
+                                    
                 </thead>
+                  
                 <tbody>
                     <% @service.each do |service| %>
                         <tr>
@@ -30,14 +32,19 @@
                             <td style="width: 50px; text-align: center;"><%= service.no_hour %></td>
                             <td style="color: white; text-align: center;"><%= link_to "Edit", services_edit_path(service.id)  %></td>
                             <td style="color: white; text-align: center;"><%= button_to "Delete", services_delete_path(service.id), method: :delete %></td>
-                        </tr>
-                    <% end %>
-                    
-                </tbody>
-            </table>                
+                        </tr>                        
+                    <% end %>                                       
+                </tbody>   
+                                       
+            </table>               
         </div>
-    </div>
+        <p style="background-color: #0e1538; padding: 10px; border-radius: 20px; border:2px solid white; z-index: 99990099;">
+            <%= link_to "Add Service", services_new_path %>       
+        </p>   
+    </div>    
 </div>
+
+
 
 
        
