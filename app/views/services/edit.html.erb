@@ -1,0 +1,47 @@
+<div style="display:flex;">
+		<div class="side-bar-menu">
+			<%= render "navigation" %>		
+		</div>	
+    <div class="club-stage" style="border: 2px solid red; width: 100vw; margin-left: 300px;">
+		<div class="right" style="display: flex; align-items: center; justify-content: center; color: white; width: 500px;">
+				<div class="neon-container" style="margin-left: 300px">
+					<div class="flux">Guest</div>
+					<div class="neon">Show</div>
+					<div class="crab">Time</div>
+				</div>
+
+				<div style="border: 2px solid white; width: 250px; display: flex; align-items: center; justify-content: center; border-radius: 20px; z-index: 9999; margin-left: 200px;">
+                    <%= form_with scope: @service, url: services_update_path(@service.id), html: { autocomplete: "off" } do |form| %>
+            
+                        <div>
+                        <%= form.label :category %>
+                        <%= form.select :category, ['Dance', 'Sing', 'Escort'] %><br>
+                        </div>
+            
+                        <div style="align-items: space_between; width: 200px">
+                        <%= form.label :service_name %>
+                        <%= form.text_field :service_name %><br>
+                        </div>
+            
+                        <div style="align-items: space_between; width: 200px">
+                        <%= form.label :"Professional fee" %>
+                        <%= form.text_field :rate_hour %><br>
+                        </div>
+            
+                        <div style="align-items: space_between; width: 200px">
+                        <%= form.label :"Duration" %>
+                        <%= form.text_field :no_hour %><br>
+                        </div>
+            
+                        <div style="display: flex; justify-content: center; margin-top: 20px;">
+                        <%= form.submit %>
+                        </div>
+            
+                    <% end %>
+				</div>
+        
+        </div>
+    </div>
+</div>
+
+       

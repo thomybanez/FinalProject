@@ -31,8 +31,12 @@ Rails.application.routes.draw do
   # Services#
   get '/services', to: 'services#show', as: 'services_show'
   get '/services/new', to: 'services#new', as: 'services_new'
+  get '/services/:id/edit', to: 'services#edit', as: 'services_edit'
+  delete '/services/:id/delete', to: 'services#delete', as: 'services_delete'
 
   post '/services', to: 'services#create', as: 'services_create'
+  post '/services/:id/update', to: 'services#update', as: 'services_update'
+
 
   # Submit Performer Client#
   post '/performers', to: 'performers#create', as: 'performers_create'
