@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+#controller test
+gem 'rails-controller-testing'
+
 # Add image processing gemfile
 gem 'image_processing', '~> 1.2'
 
