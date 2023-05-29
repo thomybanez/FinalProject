@@ -9,35 +9,40 @@
       <% end %>
     </div>
 
-    <div class="right">
+    <div class="right" style="border: 2px solid white; display: flex; align-items: center; justify-content: center;">
       <div class="neon-container">
         <div class="crab">Sweet</div>
         <div class="flux">Vibe</div><br>
         <div class="neon">Baby</div>
       </div>
 
-      <div style="color: white;">
-        <table style="border: 2px solid red;">
+      <div style="color: white; border:">
+        <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
           <thead>
             <tr>
-              <th style="border: 2px solid red; width: 100px;">Client</th>
-              <th style="border: 2px solid red; width: 100px;">Performer</th>
-              <th colspan="3" style="border: 2px solid red; width: 100px;">Service</th>
-              <th style="border: 2px solid red; width: 100px;">Status</th>
-              <th style="border: 2px solid red; width: 100px;">Details</th>
-              <th colspan="2" style="border: 2px solid red; width: 150px;">Action</th>
+              <th style="width: 100px;">Client</th>
+              <th style="width: 100px;">Performer</th>
+              <th colspan="3" style="width: 200px;">Service</th>
+              <th style="width: 100px;">Status</th>
+              <th style="width: 100px;">Details</th>
+              <th colspan="2" style="width: 150px;">Action</th>
             </tr>
           </thead>
           <tbody>
             <% @bookings.each do |booking| %>
               <tr>
-                <td style="border: 2px solid red; text-align: center;"><%= booking.client_name %></td>
-                <td style="border: 2px solid red; text-align: center;"><%= booking.performer_name %></td>
-                <td style="border: 2px solid red; text-align: center;"><%= booking.service_name %></td>
-                <td style="border: 2px solid red; text-align: center;"><%= booking.duration %></td>
-                <td style="border: 2px solid red; text-align: center;"><%= booking.fee %></td>
-                <td><%= booking.performer_accepted %></td>
-                <td><%= link_to "Details", bookings_details_path(booking.id) %></td>
+                <td style="text-align: center;"><%= booking.client_name %></td>
+                <td style="text-align: center;"><%= booking.performer_name %></td>
+                <td style="text-align: center;"><%= booking.service_name %></td>
+                <td style="text-align: center;"><%= booking.duration %></td>
+                <td style="text-align: center;"><%= booking.fee %></td>
+
+                <td style="text-align: center; border-radius: 20px;
+                <% if booking.performer_accepted == 'Accepted' %>background-color: green;
+                <% elsif booking.performer_accepted == 'Rejected' || 'Cancelled' %>background-color: red;<% end %>">
+                <%= booking.performer_accepted %></td>
+
+                <td style="text-align: center"><%= link_to "Details", bookings_details_path(booking.id) %></td>
                 <td colspan="2">
                   <% if session[:performer_token] %>
                     <% if booking.performer_accepted == "pending" %>
