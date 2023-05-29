@@ -55,9 +55,12 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-    
-      
-
+    @booking = Booking.find_by(id: params[:id])
+  
+    if @booking.performer_accepted == "pending"
+      @booking.update(performer_accepted: "Cancelled")      
+    end
+    redirect_to bookings_show_path 
   end
 
   def accept
@@ -70,6 +73,12 @@ class BookingsController < ApplicationController
   end
 
   def reject
+    @booking = Booking.find_by(id: params[:id])
+  
+    if @booking.performer_accepted == "pending"
+      @booking.update(performer_accepted: "Rejected")      
+    end
+    redirect_to bookings_show_path
   end
     
 

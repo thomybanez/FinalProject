@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   # Bookings#
   get '/bookings/show', to: 'bookings#show', as: 'bookings_show'
+  get '/bookings/:id/details', to: 'bookings#details', as: 'bookings_details'
   post '/bookings/create/performer/:id', to: 'bookings#create', as: 'bookings_create'
 
   post '/bookings/:id/cancel', to: 'bookings#cancel', as: 'bookings_cancel'

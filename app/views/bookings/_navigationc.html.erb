@@ -1,0 +1,17 @@
+<div>
+
+<h1 class="nav-flicker" style="display:flex; flex-direction: column;">
+  <%= link_to "Hom<span class=\"delay1\">e</span>".html_safe, clients_dashboard_path(@client.id) %>
+  <%= link_to "Pr<span class=\"delay1\">o</span>file".html_safe, clients_edit_path(@client.id) %>
+  <%= link_to "Activi<span class=\"delay2\">t</span>y".html_safe, bookings_show_path(@client.id) %>
+  <%= link_to "Lo<span class=\"delay3\">g</span>out".html_safe, users_home_path(@client.id) %><br>
+</h1>
+
+    <div style="color: white; position: fixed; left: 0; bottom: 0;">
+		<h4>Welcome, <%= @client.nick_name %></h4>
+			<p>Age: <%= @client.age %></p>
+			<p>Gender: <%= @client.gender %></p>
+		</div>
+    
+</div>
+
