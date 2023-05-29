@@ -3,8 +3,8 @@ class CreateServices < ActiveRecord::Migration[7.0]
     create_table :services do |t|
       t.string :category
       t.string :service_name
-      t.integer :rate_hour
-      t.integer :no_hour
+      t.integer :fee
+      t.integer :duration
       t.references :performer
 
       t.timestamps

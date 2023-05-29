@@ -27,7 +27,7 @@
     <%= form.text_field :age %><br>
 
     <%= form.label :gender %>
-    <%= form.select :gender, ['male', 'female'] %><br>
+    <%= form.collection_select :gender, %w[male female], :to_s, :humanize, { prompt: 'Select Gender' } %><br>
 
     <%= form.label :location %>
     <%= form.text_field :location %><br>

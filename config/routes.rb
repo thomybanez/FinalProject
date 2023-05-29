@@ -25,8 +25,11 @@ Rails.application.routes.draw do
 
   # Bookings#
   get '/bookings/show', to: 'bookings#show', as: 'bookings_show'
-  get '/bookings/permission', to: 'bookings#permission', as: 'bookings_permission'
   post '/bookings/create/performer/:id', to: 'bookings#create', as: 'bookings_create'
+
+  post '/bookings/:id/cancel', to: 'bookings#cancel', as: 'bookings_cancel'
+  post '/bookings/:id/accept', to: 'bookings#accept', as: 'bookings_accept'
+  post '/bookings/:id/reject', to: 'bookings#reject', as: 'bookings_reject'
 
   # Services#
   get '/services', to: 'services#show', as: 'services_show'
@@ -36,7 +39,6 @@ Rails.application.routes.draw do
 
   post '/services', to: 'services#create', as: 'services_create'
   post '/services/:id/update', to: 'services#update', as: 'services_update'
-
 
   # Submit Performer Client#
   post '/performers', to: 'performers#create', as: 'performers_create'

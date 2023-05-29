@@ -47,6 +47,10 @@ class ServicesController < ApplicationController
     if @service.destroy
       redirect_to services_show_path
     end
+  end
+
+  def pending
+
 
   end
 
@@ -55,10 +59,10 @@ class ServicesController < ApplicationController
   private
 
   def service_create_params
-    params.require(:service).permit(:category, :service_name, :rate_hour, :no_hour)
+    params.require(:service).permit(:category, :service_name, :fee, :duration)
   end
 
   def service_update_params
-    params.require(:service).permit(:category, :service_name, :rate_hour, :no_hour)
+    params.require(:service).permit(:category, :service_name, :fee, :duration)
   end
 end

@@ -62,7 +62,7 @@
                         <div style="width: 300px; display: flex; justify-content: space-between;">
                                 <%= form.label :gender %>
                             <div>
-                                <%= form.text_field :gender %><br>
+                                <%= form.collection_select :gender, %w[male female], :to_s, :humanize, { prompt: 'Select Gender' } %>
                             </div>
                         </div>
 

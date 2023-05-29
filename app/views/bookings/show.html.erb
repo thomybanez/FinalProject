@@ -1,12 +1,40 @@
 <div style="color: white;">
 
-Review Booking Details
-<br>
-<%= render "client" %><br>
-<%= render "performer" %><br>
-<%= render "service" %><br>
-
-<%= link_to "Send Request", bookings_permission_path %>
-<%= link_to "Return", clients_show_path(@selected_performer.id) %>
-
+<table style="border: 2px solid red;">
+    <thead>
+        <tr>            
+            <th style="border: 2px solid red; width: 100px;">Client</th>
+            <th style="border: 2px solid red; width: 100px;">Performer</th>
+            <th colspan="3" style="border: 2px solid red; width: 100px;">Service</th>
+            <th style="border: 2px solid red; width: 100px;">Status</th>
+            <th style="border: 2px solid red; width: 100px;">Details</th>
+            <th colspan="2" style="border: 2px solid red; width: 150px;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @bookings.each do |booking| %>
+            <tr>                
+                <td style="border: 2px solid red; text-align: center;"><%= booking.client_name %></td>
+                <td style="border: 2px solid red; text-align: center;"><%= booking.performer_name %></td>             
+                <td style="border: 2px solid red; text-align: center;"><%= booking.service_name %></td>
+                <td style="border: 2px solid red; text-align: center;"><%= booking.duration %></td>
+                <td style="border: 2px solid red; text-align: center;"><%= booking.fee %></td>
+                <td><%= booking.performer_accepted %></td>
+                <td><%= link_to "Details" %></td>
+                <td colspan="2">
+                    <% if session[:performer_token] %>
+                        <% if booking.performer_accepted == "pending" %>
+                            <%= button_to "Accept", bookings_accept_path(booking.id) %>
+                            <%= button_to "Reject" %>
+                        <% end %>
+                    <% elsif session[:client_token] %>
+                        <% if booking.performer_accepted == "pending" %>
+                            <%= button_to "Cancel" %>
+                        <% end %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 </div>

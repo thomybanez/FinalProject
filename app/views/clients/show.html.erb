@@ -10,13 +10,7 @@
                     <div class="crab">Sweet</div>
                     <div class="flux">Vibe</div><br>
                     <div class="neon">Baby</div>      
-                </div>     
-
-                <div style="position:fixed;">
-					<div></div>
-					<div></div>
-					<h2></h2>                    
-				</div>                
+                </div>
 
                 <div style="display: flex; margin-top: 80px;">
                 
@@ -33,7 +27,7 @@
                     
 				</div>
 
-            <div class="table-container" style="">
+            <div class="table-container">
                 <%= form_with scope: @booking, url: bookings_create_path(@client.id), html: { autocomplete: "off" } do |form| %>
                     <table class="table">            
                         <thead>
@@ -42,19 +36,29 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody>                            
                             <% @service.each do |service| %>
                                 <tr>            
-                                    <td><%= service.category %></td>
-                                    <td><%= service.service_name %></td>
-                                    <td><%= service.rate_hour %></td>
-                                    <td><%= form.radio_button :service_id, service.id %></td>                           
+                                    <td style="text-align: center;"><%= service.category %></td>
+                                    <td style="text-align: center;"><%= service.service_name %></td>
+                                    <td style="text-align: center;"><%= service.fee %></td>
+                                    <td style="text-align: center;"><%= form.radio_button :service_id, service.id %></td>                                    
                                 </tr>                      
                             <% end %>
-                            <tr>
-                                <td colspan="4" style="text-align: center;"><%= form.submit "Book Now" %></td>
-                            </tr>
-                            
+
+                                <tr>
+                                    <td>Date:</td>
+                                    <td><%= form.select :booking_month, options_for_select(Date::MONTHNAMES.compact.map.with_index { |m, i| [m, i + 1] }) %></td>
+                                    <td><%= form.select :booking_day, options_for_select((1..31).to_a) %></td>
+                                </tr>
+                                <tr>                          
+                                    <td>Time:</td>
+                                    <td><%= form.time_field :booking_time %></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4" style="text-align: center;"><%= form.submit "Book Now" %></td>
+                                </tr>                            
                         </tbody>                
                     </table>            
                 <% end %>

@@ -28,8 +28,8 @@
                         <tr>
                             <td style="width: 100px; text-align: center;"><%= service.category %></td>
                             <td style="width: 100px; text-align: center;"><%= service.service_name %></td>
-                            <td style="width: 50px; text-align: center;"><%= service.rate_hour %></td>
-                            <td style="width: 50px; text-align: center;"><%= service.no_hour %></td>
+                            <td style="width: 50px; text-align: center;"><%= service.fee %></td>
+                            <td style="width: 50px; text-align: center;"><%= service.duration %></td>
                             <td style="color: white; text-align: center;"><%= link_to "Edit", services_edit_path(service.id)  %></td>
                             <td style="color: white; text-align: center;"><%= button_to "Delete", services_delete_path(service.id), method: :delete %></td>
                         </tr>                        
