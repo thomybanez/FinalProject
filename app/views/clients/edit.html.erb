@@ -12,7 +12,7 @@
 					<div class="crab">FUN </div>
 				</div>
 
-
+                <div style="display:flex; margin-top: 80px; width: 50vw;">
                 <% if @photos.present? %>  
                     <div class="container">
                         <div class="box" style="--i:0;">
@@ -23,8 +23,9 @@
                         </div>
                     </div>
                 <% end %>
+                </div>
 
-            <div style="color: white; border: 2px solid red; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 9999999;">
+            <div style="color: white; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 9999999;">
             <div style="position: fixed; bottom: 20px; border: 2px solid white; z-index: 999999; color: white; padding: 20px; background-color: #0e1538; border-radius: 20px;">
                     <%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
 

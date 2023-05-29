@@ -34,8 +34,8 @@
                 <td style="text-align: center;"><%= booking.client_name %></td>
                 <td style="text-align: center;"><%= booking.performer_name %></td>
                 <td style="text-align: center;"><%= booking.service_name %></td>
-                <td style="text-align: center;"><%= booking.duration %></td>
-                <td style="text-align: center;"><%= booking.fee %></td>
+                <td style="text-align: center;"><%= booking.duration %>hr/s</td>
+                <td style="text-align: center;">P<%= booking.fee %></td>
 
                 <td style="text-align: center; border-radius: 20px; height: 50px;
                 <% if booking.performer_accepted == 'Accepted' %>background-color: green;

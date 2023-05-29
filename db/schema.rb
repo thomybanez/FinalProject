@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_095538) do
     t.string "performer_accepted", default: "pending"
     t.bigint "service_id"
     t.string "service_name", default: "service name"
-    t.string "duration", default: "duration"
+    t.integer "duration"
     t.integer "fee"
     t.date "booking_date"
     t.time "booking_time"

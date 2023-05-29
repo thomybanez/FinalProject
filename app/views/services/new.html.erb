@@ -30,7 +30,7 @@
             
                         <div style="align-items: space_between; width: 200px">
                         <%= form.label :"Duration(hr/s)" %>
-                        <%= form.collection_select :duration, %w[1hr 2hrs 3hrs 4hrs 5hrs], :to_s, :humanize, { prompt: 'Select Duration' } %>
+                        <%= form.collection_select :duration, %w[1 2 3 4 5], :to_s, :humanize, { prompt: 'Select Duration' } %>
                         </div>
             
                         <div style="display: flex; justify-content: center; margin-top: 20px;">

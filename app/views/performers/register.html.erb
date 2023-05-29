@@ -1,46 +1,30 @@
-<div style="color: white; width: 210px; height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <%= form_with scope: @performer, url: performers_create_path ,  method: 'post', html: {autocomplete: "off"}  do |form| %>
+<div style="display:flex; flex-direction: column;">
+    <div class="neon-button-pink">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Performers
+    </div> 
 
+    <div style="color: white; border: 2px solid white; padding: 30px; border-radius: 20px;">
+      <%= form_with scope: @performer, url: performers_create_path ,  method: 'post', html: {autocomplete: "off"}  do |form| %>
+      
+          <%= form.label :email %><br>
+          <%= form.text_field :email %><br>
 
+          <%= form.label :password %><br>
+          <%= form.password_field :password %><br>
 
-    <div class="label">
-      <%= form.label :email %>
-      <div class="field"><%= form.text_field :email %></div>
-    </div>
+          <%= form.label :password_confirmation %><br>
+          <%= form.password_field :password %><br>
 
-          <div class="errors">
-                <% @performer.errors[:email].each do |error| %>
-                  <%= error %>
-                <% end %>
+          <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+          <%= form.submit %>
           </div>
 
-    <div class="label">
-      <%= form.label :password %>
-      <div class="field"><%= form.password_field :password %></div>
-      </div>
-    
-      <div class="errors">
-                <% @performer.errors[:password].each do |error| %>
-                  <%= error %>
-                <% end %>
-            </div>
-
-    <div class="label">
-      <%= form.label :password_confirmation %>
-      <div class="field"><%= form.password_field :password %></div>
-      </div>
-
-      <div class="errors">
-                <% @performer.errors[:password].each do |error| %>
-                  <%= error %>
-                <% end %>
-            </div>
-
-
-      <div class="submit">
-        <%= form.submit %>
-      </div>
-
-  <% end %>
+      <% end %>
+      <i style="font-size: 12px; color: green;">want to go back?<br><%= link_to "Return to Login/Register", users_home_path %></i>
+    </div>
 </div>
 

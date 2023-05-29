@@ -12,7 +12,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.string :performer_accepted, default: 'pending'
       t.references :service
       t.string :service_name, default: 'service name'
-      t.string :duration, default: 'duration'
+      t.integer :duration
       t.integer :fee, default: 'fee'
       t.date :booking_date
       t.time :booking_time
