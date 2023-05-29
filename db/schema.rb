@@ -54,10 +54,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_095538) do
     t.string "performer_accepted", default: "pending"
     t.bigint "service_id"
     t.string "service_name", default: "service name"
-    t.integer "duration"
-    t.integer "fee"
-    t.date "booking_date"
-    t.time "booking_time"
+    t.string "duration"
+    t.string "fee"
+    t.string "booking_date"
+    t.string "booking_time"
     t.string "transaction_status", default: "incomplete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -99,8 +99,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_21_095538) do
   create_table "services", force: :cascade do |t|
     t.string "category"
     t.string "service_name"
-    t.integer "fee"
-    t.integer "duration"
+    t.string "fee"
+    t.string "duration"
     t.bigint "performer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

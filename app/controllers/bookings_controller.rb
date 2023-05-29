@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   def create
     @client = Client.find_by(token: session[:client_token])
     @selected_performer = Performer.find_by(id: session[:selected_performer])
-
+    
     @client_name = @client.nick_name
     @client_location = @client.location
     @client_contact = @client.contact_number
@@ -10,13 +10,10 @@ class BookingsController < ApplicationController
     @performer_name = @selected_performer.stage_name
     @performer_location = @selected_performer.location
     @performer_contact = @selected_performer.contact_number
-    puts "Booking Month: #{params[:booking][:booking_month]}"
-    puts "Booking Day: #{params[:booking][:booking_day]}"
 
     current_year = Time.current.year
-    @booking_date = Date.new(current_year, params[:booking][:booking_month].to_i, params[:booking][:booking_day].to_i)
-    @booking_time = Time.zone.parse(params[:booking][:booking_time])
-    
+    @booking_date = Date.new(current_year, params[:booking][:booking_month].to_i, params[:booking][:booking_day].to_i)    
+    @booking_time = params[:booking][:booking_time]    
 
     if params[:booking].present? && params[:booking][:service_id].present?
       session[:selected_service] = params[:booking][:service_id]
@@ -79,6 +76,17 @@ class BookingsController < ApplicationController
       @booking.update(performer_accepted: "Rejected")      
     end
     redirect_to bookings_show_path
+  end
+
+  def details
+    if session[:client_token].present?
+      @client = Client.find_by(token: session[:client_token])
+      @booking = Booking.find_by(id: params[:id])
+    elsif session[:performer_token].present?
+      @performer = Performer.find_by(token: session[:performer_token])
+      @booking = Booking.find_by(id: params[:id])
+    end
+
   end
     
 

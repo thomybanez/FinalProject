@@ -1,0 +1,102 @@
+<div class="opus-ktv" style="height:100vh; width: 100%;">
+
+  <div style="display:flex;">
+    <div class="side-bar-menu">
+      <% if session[:client_token].present? %>
+        <%= render "navigationc", client_id: @client.id %>
+      <% elsif session[:performer_token].present? %>
+        <%= render "navigationp", performer_id: @performer.id %>
+      <% end %>
+    </div>
+
+    <div class="right" style="display: flex; align-items: center; justify-content: center;">
+      <div class="neon-container" style="margin-left: 300px;">
+        <div class="crab">Sweet</div>
+        <div class="flux">Vibe</div><br>
+        <div class="neon">Baby</div>
+      </div>
+
+      <div style="color: white; z-index: 9999999;">
+        <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
+          <thead>
+            <tr>
+              <th style="width: 100px;">Client</th>          
+              <th style="width: 100px;">Location</th>              
+              <th style="width: 100px;">Contact</th>
+            </tr>            
+          </thead>
+          <tbody>         
+            <tr>
+                <td style="text-align: center;"><%= @booking.client_name %></td>
+                <td style="text-align: center;"><%= @booking.client_location %></td>
+                <td style="text-align: center;"><%= @booking.client_contact %></td>                
+            </tr>     
+          </tbody>
+        </table>
+
+
+        <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
+          <thead>
+            <tr>
+              <th style="width: 100px;">Performer</th>          
+              <th style="width: 100px;">Location</th>              
+              <th style="width: 100px;">Contact</th>
+            </tr>            
+          </thead>
+          <tbody>
+            <tr>
+                <td style="text-align: center;"><%= @booking.performer_name %></td>
+                <td style="text-align: center;"><%= @booking.performer_location %></td>
+                <td style="text-align: center;"><%= @booking.performer_contact %></td>                
+            </tr>
+          </tbody>
+        </table>
+
+        <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Service</th>          
+            <th style="width: 100px;">Duration</th>              
+            <th style="width: 100px;">Fee</th>
+          </tr>            
+        </thead>
+        <tbody>         
+          <tr>
+              <td style="text-align: center;"><%= @booking.service_name %></td>
+              <td style="text-align: center;"><%= @booking.duration %>hr/s</td>
+              <td style="text-align: center;"><%= @booking.fee %></td>                
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Date</th>          
+            <th style="width: 100px;">Time</th>            
+          </tr>            
+        </thead>
+        <tbody>
+          <tr>                      
+              <td style="text-align: center;"><%= @booking.booking_date %></td>
+              <td style="text-align: center;"><%= @booking.booking_time %></td>                
+          </tr>                
+          
+        </tbody>
+      </table>
+
+      <%= link_to "Return", bookings_show_path %>
+
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+  
+</div>
+      
+
+         
