@@ -1,40 +1,81 @@
-<% if @photos.present? %>  
+<div class="opus-ktv" style="height:100vh; width: 100%;">	
 
-<div class="container">
-	<div class="box" style="--i:0;">
-		<i></i>
-		<div class="content">
-        <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>				
-		</div>
-	</div>
-</div>
+	<div style="display:flex;">
+		<div class="side-bar-menu">
+			<%= render "navigation" %>		
+		</div>	
 
-<% end %>
-
-<div style="color: white;">
-<%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
-
-    <%= form.label :email%>
-    <%= @client.email %><br>
-
-    <%= form.label :nick_name %>
-    <%= form.text_field :nick_name %><br>
-
-    <%= form.label :contact_number %>
-    <%= form.text_field :contact_number %><br>
-
-    <%= form.label :age %>
-    <%= form.text_field :age %><br>
-
-    <%= form.label :gender %>
-    <%= form.collection_select :gender, %w[male female], :to_s, :humanize, { prompt: 'Select Gender' } %><br>
-
-    <%= form.label :location %>
-    <%= form.text_field :location %><br>
+		<div class="right">
+				<div class="neon-container">
+					<div class="neon">SING </div>
+					<div class="flux">DANCE </div>
+					<div class="crab">FUN </div>
+				</div>
 
 
-    <%= form.file_field :photos, multiple: true %>
+                <% if @photos.present? %>  
+                    <div class="container">
+                        <div class="box" style="--i:0;">
+                            <i></i>
+                            <div class="content">
+                            <%= image_tag @photos[0].variant(resize_to_fill: [1000, 1000]) %>				
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
 
-    <%= form.submit %>
-<% end %>
+            <div style="color: white; border: 2px solid red; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 9999999;">
+            <div style="position: fixed; bottom: 20px; border: 2px solid white; z-index: 999999; color: white; padding: 20px; background-color: #0e1538; border-radius: 20px;">
+                    <%= form_with scope: @client, url: clients_update_path, html: {autocomplete: "off"} do |form| %>
+
+                        
+                        <%= form.label :email%>                            
+                        <%= @client.email %><br>                        
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                            <%= form.label :nick_name %>
+                                <div>
+                                    <%= form.text_field :nick_name %><br>
+                                </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                            <%= form.label :contact_number %>
+                                <div>
+                                    <%= form.text_field :contact_number %><br>
+                                </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                            <%= form.label :age %>
+                                <div>
+                                    <%= form.text_field :age %><br>
+                                </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                            <%= form.label :gender %>
+                                <div>
+                                    <%= form.collection_select :gender, %w[male female], :to_s, :humanize, { prompt: 'Select Gender' } %><br>
+                                </div>
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                            <%= form.label :location %>
+                                <div>
+                                    <%= form.text_field :location %><br>
+                                </div>                            
+                        </div>
+
+                        <div style="width: 300px; display: flex; justify-content: space-between;">
+                        <%= form.file_field :photos, multiple: true %>
+                            <div>
+                                <%= form.submit %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

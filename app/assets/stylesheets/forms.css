@@ -1,3 +1,16 @@
+.button{    
+    border-radius: 20px;
+    padding: 5px;
+    background-color: white;
+    z-index: 9999;
+    margin: 5px
+}
+
+.button:hover{
+    
+    border: 2px solid white;
+}
+
 .label{
     height: 70px; 
     width: 100%; 

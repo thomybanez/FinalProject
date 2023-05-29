@@ -16,7 +16,7 @@
         <div class="neon">Baby</div>
       </div>
 
-      <div style="color: white; border:">
+      <div style="color: white; z-index: 9999999;">
         <table style="background-color: #0e1538; padding: 10px; border-radius: 20px; border: 2px solid white;">
           <thead>
             <tr>
@@ -37,23 +37,23 @@
                 <td style="text-align: center;"><%= booking.duration %></td>
                 <td style="text-align: center;"><%= booking.fee %></td>
 
-                <td style="text-align: center; border-radius: 20px;
+                <td style="text-align: center; border-radius: 20px; height: 50px;
                 <% if booking.performer_accepted == 'Accepted' %>background-color: green;
                 <% elsif booking.performer_accepted == 'Rejected' || 'Cancelled' %>background-color: red;<% end %>">
                 <%= booking.performer_accepted %></td>
 
                 <td style="text-align: center"><%= link_to "Details", bookings_details_path(booking.id) %></td>
-                <td colspan="2">
+                <td colspan="2" style="display: flex; width: fit-content; align-items: center; justify-content: center;">                  
                   <% if session[:performer_token] %>
-                    <% if booking.performer_accepted == "pending" %>
-                      <%= button_to "Accept", bookings_accept_path(booking.id) %>
-                      <%= button_to "Reject", bookings_reject_path(booking.id) %>
+                    <% if booking.performer_accepted == "pending" %>                    
+                      <%= button_to "Accept", bookings_accept_path(booking.id), class:"button" %>
+                      <%= button_to "Reject", bookings_reject_path(booking.id), class:"button" %>                    
                     <% end %>
                   <% elsif session[:client_token] %>
                     <% if booking.performer_accepted == "pending" %>
-                      <%= button_to "Cancel", bookings_cancel_path(booking.id) %>
+                      <%= button_to "Cancel", bookings_cancel_path(booking.id), class:"button" %>
                     <% end %>
-                  <% end %>
+                  <% end %>                 
                 </td>
               </tr>
             <% end %>
