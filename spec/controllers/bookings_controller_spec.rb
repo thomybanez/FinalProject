@@ -1,43 +1,54 @@
 require 'rails_helper'
+require 'spec_helper'
+require 'rspec'
 require 'pp'
 
-RSpec.describe BookingsController, type: :controller do
+RSpec.describe BookingsController, type: :controller do 
 
-    describe "#submit" do
-        it "assigns the correct client" do
-            @client = Client.new(token: "sample_token")
-            session[:client_token] = "sample_token"  
-            expect(session[:client_token]).to eq("sample_token")
+        describe 'POST create' do           
+            it "returns true when client token is present in the session" do
+                session[:client_token] = "valid_token"                
+                expect(session[:client_token].present?).to be true
+            end            
         end
 
-        it "create a new booking" do
-            @client_id = 1
-            @performer_id = 1
-            @service_id = 1
-                @booking = Booking.new(client_id: @client_id, performer_id: @performer_id, service_id: @service_id)
-                @booking.save
-            
-                expect(@booking.client_id).to eq(@client_id)
-                expect(@booking.performer_id).to eq(@performer_id)
-                expect(@booking.service_id).to eq(@service_id)
-                expect(@booking.save).to be_truthy
-                expect(@booking).to be_persisted
-                
+        describe 'GET show' do
+            it 'assigns @client and @bookings when client session is present' do
+                client = FactoryBot.create(:client)                
+                session[:client_token] = client.token              
+              
+                get :show
+              
+                expect(assigns(:client)).to eq(client)
+                expect(assigns(:bookings)).to match_array(client.bookings)
+                expect(assigns(:services)).to be_a(Hash)
+                expect(assigns(:services)).to be_empty
+
+                client.bookings.each do |booking|
+                    expect(assigns(:services)[booking.id]).to eq(Service.find_by(id: booking.service_id))
+                end
+            end
+
+            it 'assigns @performer and @bookings when performer session is present' do
+                performer = FactoryBot.create(:performer)
+                session[:performer_token] = performer.token
+
+                get :show
+
+                expect(assigns(:performer)).to eq(performer)
+                expect(assigns(:bookings)).to match_array(performer.bookings)
+                expect(assigns(:services)).to be_a(Hash)
+                expect(assigns(:services)).to be_empty
+
+                performer.bookings.each do |booking|
+                    expect(assigns(:service)[booking.id]).to eq(Service.find_by(id: booking.service_id))
+                end
+            end
         end
 
-        it "create a new booking" do
-            @booking = Booking.new(client_id: @client_id, performer_id: @performer_id, service_id: @service_id)
-            expect(@booking).to be_new_record
-        end
-
-   
 
 
-
-
-
-
-    end
+ 
 end
   
   

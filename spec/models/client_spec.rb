@@ -1,6 +1,10 @@
 require 'rails_helper'
+require 'spec_helper'
+require 'rspec'
+require 'pp'
 
 RSpec.describe Client, type: :model do
+  
   it 'should have an email' do
     expect { Client.create!(email: '123') }.to raise_error(ActiveRecord::RecordInvalid)
   end

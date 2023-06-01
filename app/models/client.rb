@@ -10,7 +10,9 @@ class Client < ApplicationRecord
 
   # associations
   has_one :wallet, as: :owner
-  has_one :booking
+
+  # factory bot
+  has_many :bookings
 
   # callbacks
   after_create :create_wallet

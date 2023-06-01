@@ -3,6 +3,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+#factory bot
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
+#rspec
+group :development, :test do
+  gem 'rspec'
+end
+
 #controller test
 gem 'rails-controller-testing'
 

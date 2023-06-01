@@ -10,7 +10,11 @@ class Performer < ApplicationRecord
 
   # associations
   has_one :wallet, as: :owner
-  has_one :booking
+
+  #factory bot
+  has_many :bookings
+
+  
   has_many :service
 
   # callbacks
