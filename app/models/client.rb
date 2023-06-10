@@ -6,17 +6,10 @@ class Client < ApplicationRecord
   has_secure_password
 
   # validations
-  validates :email, presence: true
-
-  # associations
-  has_one :wallet, as: :owner
+  validates :email, presence: true  
 
   # factory bot
   has_many :bookings
-
-  # callbacks
-  after_create :create_wallet
-
 
   def resize_photos(photos)
     photos.each do |photo|
@@ -28,10 +21,6 @@ class Client < ApplicationRecord
         photo.variant(resize_to_limit: [1000, 1000]).processed
       end
     end
-  end
-
-  def create_wallet
-    build_wallet(balance: 0).save
   end
 
   def generate_token
